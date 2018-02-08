@@ -9,3 +9,11 @@
 #main-header {
 	background: #fff;
 }
+
+#inquiry-form .card-header{
+	padding: 0 !important;
+}
+
+#inquiry-form .card-header .nav-link {
+	padding: 15px;
+}

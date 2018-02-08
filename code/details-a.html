@@ -19,7 +19,7 @@
 			  </a>
 
 			  <nav class="">
-				<a class="text-dark" href="#">9175302862</a>
+				<a class="text-dark" href="tel:+9175302862">9175302862</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a class="" href="#">TRACK</a>
 			  </nav>
@@ -33,9 +33,9 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div class="card">
-				  	<div class="card-header">
-						<ul class="nav  nav-pills nav-fill" role="tablist" id="details-tab">
+				<div class="card" id="inquiry-form">
+				  	<div class="card-header" >
+						<ul class="nav nav-pills nav-fill" role="tablist" id="details-tab">
 					  <li class="nav-item active">
 					    <a class="nav-link active" href="#pickup" data-toggle="tab">Pickup</a>
 					  </li>
@@ -152,8 +152,8 @@
 								  <br>
 
 								  <div class="form-group" style="text-align: center;">
-								  	<button type="button" class="btn btn-primary  btn-lg " id="user-previous">Previous</button>
-									<button type="button" class="btn btn-primary  btn-lg " id="user-next">Next</button>
+								  	<button type="button" class="btn btn-primary  btn-lg " id="profile-previous">Previous</button>
+									<button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal" data-target="#otpModal">Next</button>
 								  </div>	
 
 								</form>
@@ -171,6 +171,25 @@
 	  </div>
 
 	</main><!-- /.container -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-body">
+	        <div class="form-group">
+				<label for="otp">Enter OTP</label>
+				<input type="text" class="form-control" id="otp" placeholder="Enter OTP">
+			</div>	        
+
+			<div class="form-group">
+				<button type="button" class="btn btn-primary" id="btn-otp-submit">Submit</button>
+			</div>
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
