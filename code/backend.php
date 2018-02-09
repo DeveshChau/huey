@@ -22,6 +22,13 @@
    	$email = $_POST['email'];
    	$mobile = $_POST['mobile'];
 
+    $checkbox = $_POST['movable'];
+    $chk = "";
+    foreach($checkbox as $chk1) {
+      $chk.=$chk1.",";
+    } 
+  
+
    	echo $date;
    	echo '<br>';
    	echo $pickupaddress;
@@ -44,18 +51,22 @@
    	echo '<br>';
 
 	$sql = "INSERT INTO pm_test (pmdate, pmaddress, pickupfloor, dropfloor,
-	 pickuplift, droplift, dropaddress)
-	  VALUES ('$date', '$pickupaddress', '$pickupfloor', '$dropfloor', '$pickuplift', 
-	  '$droplift', '$dropaddress')";
+          pickuplift, droplift, dropaddress)
+          VALUES ('$date', '$pickupaddress', '$pickupfloor', '$dropfloor', '$pickuplift', 
+          '$droplift', '$dropaddress')";
+
 	$sql2 = "INSERT INTO pm_user (username,email,mobile) VALUES ('$username','$email','$mobile')";
-	mysqli_select_db($conn, 'pm_huey');
-    $retval = mysqli_query($conn, $sql);
-    if(! $retval ) {
+
+  $sql3 = "SELECT TOP 1 id FROM pm_user ORDER BY ID DESC";
+
+	mysqli_select_db($conn, 'pm_test');
+  $retval = mysqli_query($conn, $sql);
+  $retval2 = mysqli_query($conn, $sql2);
+  $retval3 = mysqli_query($conn, $sql3);
+    /*if(! $retval ) {
                  die('Could not get data: ' . mysqli_error($conn));
               }   
-
-    $retval2 = mysqli_query($conn, $sql2);
-   }
+   }*/
 ?>
 
 <form action="index.php" method="post">
@@ -75,7 +86,7 @@
 		<option value="No">No</option>
 	</select><br>
 	<label>drop address</label>
-	<input type="text" name="dropaddress" id="auto-complete"><br>
+	<input type="text" name="dropaddress" id="auto-complete1"><br>
 	<label>drop floor</label>
 	<select name="dropfloor">
 		<option value="1">1</option>
@@ -93,12 +104,17 @@
 	<input type="text" name="email"><br>
 	<label>mobile</label>
 	<input type="text" name="mobile"><br>
+  <input type="checkbox" name="movable[]" value="chair">chair <br>
+  <input type="checkbox" name="movable[]" value="table">table <br>
+  <input type="checkbox" name="movable[]" value="cupboard">cupboard <br>
 	<input type="submit" name="submit">
 </form>
 
 <script type="text/javascript">
       function activatePlacesSearch(){
         var input = document.getElementById('auto-complete');
+        var autoComplete = new google.maps.places.Autocomplete(input);
+        var input = document.getElementById('auto-complete1');
         var autoComplete = new google.maps.places.Autocomplete(input);
       }
     </script>
