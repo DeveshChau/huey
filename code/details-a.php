@@ -11,21 +11,9 @@
   	</head>
   	<body class="child-page"> 
 
-	<header>
-	  	<div class="navbar navbar-light  box-shadow" id="main-header">
-			<div class="container">
-			  <a href="#" class="navbar-brand d-flex align-items-center">
-				<img id="logo" src="./img/logo.png">
-			  </a>
-
-			  <nav class="">
-				<a class="text-dark" href="tel:+9175302862">9175302862</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a class="" href="#">TRACK</a>
-			  </nav>
-			</div>
-	  	</div>
-	</header>
+	<?php
+		include 'header.php';
+	?>
 
 	<main role="main" >
 		<br><br>
@@ -63,7 +51,7 @@
 
 								  <div class="form-group">
 									<label for="pickup-LocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="LocationApartment" placeholder="Enter your Location / Apartment">
+									<input type="text" class="form-control" id="PickupLocationApartment" placeholder="Enter your Location / Apartment">
 								  </div>
 
 								  <div class="form-group">
@@ -100,7 +88,7 @@
 
 								  <div class="form-group">
 									<label for="drop-LocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="LocationApartment" placeholder="Enter your Location / Apartment">
+									<input type="text" class="form-control" id="DropLocationApartment" placeholder="Enter your Location / Apartment">
 								  </div>
 
 								  <div class="form-group">
@@ -197,5 +185,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
+	<script type="text/javascript">
+      function activatePlacesSearch(){
+        var input1 = document.getElementById('PickupLocationApartment');
+        var autoComplete1 = new google.maps.places.Autocomplete(input1);
+        var input2 = document.getElementById('DropLocationApartment');
+       	var autoComplete2 = new google.maps.places.Autocomplete(input2);
+      }         
+   </script> -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
 </html>

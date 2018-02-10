@@ -11,21 +11,9 @@
 	</head>
 	<body class="child-page"> 
 
-	<header>
-		<div class="navbar navbar-light  box-shadow" id="main-header">
-			<div class="container">
-			  <a href="#" class="navbar-brand d-flex align-items-center">
-				<img id="logo" src="./img/logo.png">
-			  </a>
-
-			  <nav class="">
-				<a class="text-dark" href="tel:+9175302862">9175302862</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<a class="" href="#">TRACK</a>
-			  </nav>
-			</div>
-		</div>
-	</header>
+	<?php
+		include 'header.php';
+	?>
 
 	<main role="main" >
 		<br><br>
@@ -137,7 +125,7 @@
 								<textarea class="form-control" aria-label="With textarea" placeholder="Something Important you want to mention"></textarea>
 							</div>
 							<div class="form-group" style="text-align: center;">
-								<button type="button" class="btn btn-primary  btn-lg " id="pickup-next">Next</button>
+								<a class="btn btn-primary" href="summary.php" role="button">Next</a>
 							</div>							
 						</div>
 					</div>

@@ -22,6 +22,7 @@ $(document).ready(function(){
 		$("a[href='#drop']").tab("show");
 	});
 
+
 	$("#profile-next").on("click", function(e){		
 		var usermobile = document.getElementById("usermobile").value;
 		//append country code to mobile
@@ -30,7 +31,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/sendotp.php",
+            url: "http://localhost/huey/code/test.php", //sendotp.php
             data: data,
             success: function(data) {
             console.log("returnedData", data);
@@ -45,7 +46,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/retryotp.php",
+            url: "http://localhost/huey/code/test.php", //retryotp.php
             data: data,
             success: function(data) {
             console.log("returnedData", data);
@@ -61,7 +62,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/verifyotp.php",
+            url: "http://localhost/huey/code/test.php", //verifyotp.php
             data: data,
             success: function(data) {
             console.log("returnedData", data);

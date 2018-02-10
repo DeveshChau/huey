@@ -28,8 +28,9 @@
 					  		</li>
 					  		<li class="nav-item">
 					    		<a class="nav-link" href="#previous-order" data-toggle="tab">Previous Order</a>
-					  		</li>					  
+					  		</li>				  
 						</ul>
+						<a class="float-right" href="details-a.php" >New Order</a>
 			  		</div>
 
 				  	<div class="card-body">

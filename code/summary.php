@@ -29,7 +29,7 @@
   								<div class="card">
 								    <div class="card-footer">
 								      	<img class="float-right" src="./img/edit.png" alt="Card image cap" style="height: 20px;width: 20px;">	
-								      	<small class="text-muted">Pick Up Address</small>
+								      	<small class="text-muted">Pick Up Date</small>
 								      	<p>14-02-2018</p> 
 								    </div>
   								</div>
@@ -80,7 +80,7 @@
 							</div>
 				  			
 							<div class="form-group" style="text-align: center;">
-								<button type="button" class="btn btn-primary  btn-lg " id="pickup-next">Confirm</button>
+								<a class="btn btn-primary" href="userdashboard.php" role="button">Confirm</a>
 							</div>							
 						</div>
 					</div>
