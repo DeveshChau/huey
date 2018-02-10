@@ -42,7 +42,7 @@ $(document).ready(function(){
 	});
 
 	$("#header-track-otp-submit").on("click", function(e){		
-		var usermobile = document.getElementById("header-track-otp").value;				
+		var usermobile = document.getElementById("header-track-user-mobile").value;				
 		//append country code to mobile
 		var mobile = "91".concat(usermobile);			
 		var otp = document.getElementById("header-track-otp").value;
