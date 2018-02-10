@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION['usermobile'])	
+){
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -30,7 +35,7 @@
 					    		<a class="nav-link" href="#previous-order" data-toggle="tab">Previous Order</a>
 					  		</li>				  
 						</ul>
-						<a class="float-right" href="details-a.php" >New Order</a>
+						<a class="float-right" href="details.php" >New Order</a>
 			  		</div>
 
 				  	<div class="card-body">
@@ -142,3 +147,9 @@
 	<script type="text/javascript" src="./js/main.js"></script>
   </body>
 </body>
+<?php
+	}
+	else{
+		header('location: index.php');
+	}
+?>

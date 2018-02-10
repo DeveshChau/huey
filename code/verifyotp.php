@@ -1,4 +1,5 @@
 <?php
+$usermobile = $_POST['usermobile'];
 $mobile = $_POST['mobile'];
 $otp = $_POST['otp'];
 $curl = curl_init();
@@ -23,7 +24,8 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
-
+session_start();
+$_SESSION["usermobile"] = $usermobile;
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {

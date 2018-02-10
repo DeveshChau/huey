@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $otp = rand(1000,9999);
 $mobile = $_POST['mobile'];

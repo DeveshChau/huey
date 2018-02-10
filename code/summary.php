@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION['usermobile'])	
+){
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -97,3 +102,9 @@
 	<script type="text/javascript" src="./js/main.js"></script>
 </body>
 </html>
+<?php
+	}
+	else{
+		header('location: index.php');
+	}
+?>

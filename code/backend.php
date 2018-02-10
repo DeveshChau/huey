@@ -23,10 +23,11 @@
    	$mobile = $_POST['mobile'];
 
     $checkbox = $_POST['movable'];
-    $chk = "";
+    $chk = $_POST['movable[0]'];
     foreach($checkbox as $chk1) {
-      $chk.=$chk1.",";
+      $chk2.=",".$chk1;
     } 
+  }
   
 
    	echo $date;
@@ -49,7 +50,13 @@
    	echo '<br>';
    	echo $mobile;
    	echo '<br>';
+    echo $chk;    
 
+    $string = explode(",",$chk2);
+    //echo "<li>".$chk."</li>";
+      foreach ($string as $str) {
+          echo "<li>".$str."</li>";
+      }
 	$sql = "INSERT INTO pm_test (pmdate, pmaddress, pickupfloor, dropfloor,
           pickuplift, droplift, dropaddress)
           VALUES ('$date', '$pickupaddress', '$pickupfloor', '$dropfloor', '$pickuplift', 
@@ -59,17 +66,19 @@
 
   $sql3 = "SELECT TOP 1 id FROM pm_user ORDER BY ID DESC";
 
+  $sql4 = "INSERT INTO pm_movables (movables,other_movables,user_id) VALUES ('$chk', 'asd', '1')";
 	mysqli_select_db($conn, 'pm_test');
-  $retval = mysqli_query($conn, $sql);
+  /*$retval = mysqli_query($conn, $sql);
   $retval2 = mysqli_query($conn, $sql2);
   $retval3 = mysqli_query($conn, $sql3);
-    /*if(! $retval ) {
+  $retval4 = mysqli_query($conn, $sql4);*/
+   /*if(! $retval ) {
                  die('Could not get data: ' . mysqli_error($conn));
               }   
    }*/
 ?>
 
-<form action="index.php" method="post">
+<form action="backend.php" method="post">
 	<label>date</label>
 	<input name="date" type="date"><br>
 	<label>pick up address</label>

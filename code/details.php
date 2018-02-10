@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   	<head>
@@ -24,16 +27,21 @@
 				<div class="card" id="inquiry-form">
 				  	<div class="card-header" >
 						<ul class="nav nav-pills nav-fill" role="tablist" id="details-tab">
-					  <li class="nav-item active">
-					    <a class="nav-link active" href="#pickup" data-toggle="tab">Pickup</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
-					  </li>
-					  <li class="nav-item">
-					    <a class="nav-link" href="#profile" data-toggle="tab">Profile</a>
-					  </li>
-					</ul>
+						  <li class="nav-item active">
+						    <a class="nav-link active" href="#pickup" data-toggle="tab">Pickup</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
+						  </li>
+						  <?php
+						  if(!isset($_SESSION['usermobile'])	
+							){
+							?>
+						  <li class="nav-item">
+						    <a class="nav-link" href="#profile" data-toggle="tab">Profile</a>
+						  </li>
+						  <?php } ?>
+						</ul>
 				  	</div>
 
 				  	<div class="card-body">
@@ -110,13 +118,22 @@
 									</select>
 								  </div>
 
-								  <br>
-
+								  <br>								
 								  <div class="form-group" style="text-align: center;">
 									<button type="button" class="btn btn-primary  btn-lg " id="drop-previous">Previous</button>
+									<?php 
+										if(!isset($_SESSION['usermobile'])	
+										){
+									?>
 									<button type="button" class="btn btn-primary  btn-lg " id="drop-next">Next</button>
+									<?php } else { ?>
+									<!-- <button type="button" class="btn btn-primary  btn-lg " id="track-drop-next"  data-toggle="modal" data-target="#otpModal">Next</button> -->
+									<a class="btn btn-primary  btn-lg" id="track-drop-next" href="movables.php">Next</a>
+									<?php } ?>
 								  </div>	
-
+								
+									
+																	  
 								</form>
 					 		</div>
 					  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -133,8 +150,8 @@
 								  </div>
 
 								  <div class="form-group">
-									<label for="usermobile">Mobile</label>
-									<input type="mobile" class="form-control" id="usermobile" placeholder="Enter 10 Digit Mobile Number">
+									<label for="usermobile">Mobile</label>							
+									<input type="text" name="" id="usermobile" class="form-control" >
 								  </div>
 
 								  <br>
@@ -192,7 +209,7 @@
         var input2 = document.getElementById('DropLocationApartment');
        	var autoComplete2 = new google.maps.places.Autocomplete(input2);
       }         
-   </script> -->
+   </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
 </html>
