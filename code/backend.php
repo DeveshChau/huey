@@ -11,7 +11,7 @@
    echo 'Connected successfully<br>';
 
    if (!empty($_POST)) {
-   	$date = $_POST['date'];
+   	$datee = $_POST['date'];
    	$pickupaddress = $_POST['pickupaddress'];
    	$pickupfloor = $_POST['pickupfloor'];
    	$pickuplift = $_POST['pickuplift'];
@@ -24,13 +24,19 @@
 
     $checkbox = $_POST['movable'];
     $chk = $_POST['movable[0]'];
+
+    echo $checkbox[0];
+    
     foreach($checkbox as $chk1) {
-      $chk2.=",".$chk1;
+      $chk2.=$chk1.",";
     } 
+    
   }
   
 
-   	echo $date;
+   	echo $datee;
+    $nice_date = date('Y-m-d', strtotime($datee));
+    echo $nice_date;
    	echo '<br>';
    	echo $pickupaddress;
    	echo '<br>';
@@ -52,7 +58,8 @@
    	echo '<br>';
     echo $chk;    
 
-    $string = explode(",",$chk2);
+    $string = explode(",",$chk2,-1);
+    echo $string;
     //echo "<li>".$chk."</li>";
       foreach ($string as $str) {
           echo "<li>".$str."</li>";
@@ -64,18 +71,21 @@
 
 	$sql2 = "INSERT INTO pm_user (username,email,mobile) VALUES ('$username','$email','$mobile')";
 
-  $sql3 = "SELECT TOP 1 id FROM pm_user ORDER BY ID DESC";
+ // $sql3 = "SELECT TOP 1 id FROM pm_user ORDER BY ID DESC";
 
   $sql4 = "INSERT INTO pm_movables (movables,other_movables,user_id) VALUES ('$chk', 'asd', '1')";
-	mysqli_select_db($conn, 'pm_test');
+
+  $sql5  = "INSERT INTO pm_date (pm_date_col) VALUES ('$nice_date')";
+  
+	mysqli_select_db($conn, 'test_db');
+  $retval2 = mysqli_query($conn, $sql5);
   /*$retval = mysqli_query($conn, $sql);
   $retval2 = mysqli_query($conn, $sql2);
   $retval3 = mysqli_query($conn, $sql3);
   $retval4 = mysqli_query($conn, $sql4);*/
-   /*if(! $retval ) {
+   if(! $retval2 ) {
                  die('Could not get data: ' . mysqli_error($conn));
-              }   
-   }*/
+         }   
 ?>
 
 <form action="backend.php" method="post">

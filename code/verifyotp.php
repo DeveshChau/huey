@@ -25,9 +25,10 @@ $err = curl_error($curl);
 
 curl_close($curl);
 session_start();
-$_SESSION["usermobile"] = $usermobile;
+
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
+  $_SESSION["usermobile"] = $usermobile;
   echo $response;
 }

@@ -35,7 +35,7 @@ if(isset($_SESSION['usermobile'])
 					    		<a class="nav-link" href="#previous-order" data-toggle="tab">Previous Order</a>
 					  		</li>				  
 						</ul>
-						<a class="float-right" href="details.php" >New Order</a>
+						<a class="float-right" href="trackdetails.php" id="new_order">New Order</a>
 			  		</div>
 
 				  	<div class="card-body">

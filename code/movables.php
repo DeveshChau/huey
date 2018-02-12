@@ -130,7 +130,7 @@ if(isset($_SESSION['usermobile'])
 								<textarea class="form-control" aria-label="With textarea" placeholder="Something Important you want to mention"></textarea>
 							</div>
 							<div class="form-group" style="text-align: center;">
-								<a class="btn btn-primary" href="summary.php" role="button">Next</a>
+								<a class="btn btn-primary" href="userdashboard.php" role="button">Next</a>
 							</div>							
 						</div>
 					</div>

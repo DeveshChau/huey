@@ -41,24 +41,28 @@ $(document).ready(function(){
         });
 	});
 
-	$("#header-track-otp-submit").on("click", function(e){		
-		var usermobile = document.getElementById("header-track-user-mobile").value;				
-		//append country code to mobile
-		var mobile = "91".concat(usermobile);			
-		var otp = document.getElementById("header-track-otp").value;
-        var data = {mobile: mobile, otp: otp, usermobile: usermobile};        
+	$("#header-track-otp-submit").on("click", function(e){     
+        var usermobile = document.getElementById("header-track-user-mobile").value;             
+        //append country code to mobile
+        var mobile = "91".concat(usermobile);           
+        var otp = document.getElementById("header-track-otp").value;
+        var data = {mobile: mobile, otp: otp, usermobile: usermobile}; 
+        console.log(usermobile);       
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/testverifyotp.php", //verifyotp.php
+            url: "http://localhost/huey/code/tracksession.php", //verifyotp.php
             /*url: "http://www.loopor.com/pacemove/code/verifyotp.php",*/
             data: data,
             success: function(data) {
             console.log("returnedData", data);
-            	
+                
              window.location = "http://localhost/huey/code/userdashboard.php";
              /*window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";*/
-          	}
+            },
+            error: function() {
+            console.log("error", data);         
+            }     
         });		
 	});
 
@@ -98,26 +102,93 @@ $(document).ready(function(){
             console.log("returnedData", data);
           	}
         });
-	});
+	});	
+    $('#datepicker').datepicker({
+        format: 'mm/dd/yyyy'
+    });
+
 	$("#btn-otp-submit").on("click", function(e){
-		var usermobile = document.getElementById("usermobile").value;        
-		//append country code to mobile        
-		var mobile = "91".concat(usermobile);			
-		var otp = document.getElementById("otp").value;
-        var data = {mobile: mobile, otp: otp, usermobile: usermobile};     
-        console.log(usermobile);   
+        var usermobile = document.getElementById("usermobile").value;
+        var username = document.getElementById("username").value;
+        var useremail = document.getElementById("useremail").value;
+        var pickupLocationApartment = document.getElementById("pickupLocationApartment").value;
+        var pickupfloor = document.getElementById("pickupfloor").value;
+        var pickuplift = document.getElementById("pickuplift").value;
+        var dropLocationApartment = document.getElementById("dropLocationApartment").value;
+        var dropfloor = document.getElementById("dropfloor").value;
+        var droplift = document.getElementById("droplift").value;
+        var pickupdate = document.getElementById("datepicker").value;
+        console.log(typeof (pickupdate));        
+        //append country code to mobile        
+        var mobile = "91".concat(usermobile);           
+        var otp = document.getElementById("otp").value;
+        var data = {mobile: mobile, 
+                    otp: otp, 
+                    usermobile: usermobile, 
+                    username: username, 
+                    useremail: useremail, 
+                    pickupLocationApartment: pickupLocationApartment, 
+                    pickupfloor: pickupfloor, 
+                    pickuplift: pickuplift,
+                    droplift: droplift,
+                    dropfloor: dropfloor,
+                    dropLocationApartment: dropLocationApartment,
+                    pickupdate: pickupdate};
+        //console.log(pickuplift,pickupfloor,pickupLocationApartment);
         $.ajax({
             type: "POST",
             dataType:'json',
             url: "http://localhost/huey/code/testverifyotp.php", //verifyotp.php
             /*url: "http://www.loopor.com/pacemove/code/verifyotp.php",*/
             data: data,
-            success: function(data) {
-            console.log("returnedData", data);
-            	
-             window.location = "http://localhost/huey/code/movables.php";
+             success: function(data) {
+            console.log("success", data);
+                
+            window.location = "http://localhost/huey/code/movables.php";
              /*window.location = "http://www.loopor.com/pacemove/code/movables.php";*/
-          	}
+            },
+            error: function() {
+            console.log("error", data);         
+    }     
         });
-	});    
+	});
+
+
+    $("#track-drop-next").on("click", function(e){
+        
+        var pickupLocationApartment = document.getElementById("trackpickupLocationApartment").value;
+        var pickupfloor = document.getElementById("trackpickupfloor").value;
+        var pickuplift = document.getElementById("trackpickuplift").value;
+        var dropLocationApartment = document.getElementById("trackdropLocationApartment").value;
+        var dropfloor = document.getElementById("trackdropfloor").value;
+        var droplift = document.getElementById("trackdroplift").value;
+        var pickupdate = document.getElementById("datepicker").value;       
+        //append country code to mobile                   
+        var data = {pickupLocationApartment: pickupLocationApartment, 
+                    pickupfloor: pickupfloor, 
+                    pickuplift: pickuplift,
+                    droplift: droplift,
+                    dropfloor: dropfloor,
+                    dropLocationApartment: dropLocationApartment,
+                    pickupdate: pickupdate};
+        console.log(pickuplift,pickupfloor,pickupLocationApartment,dropLocationApartment,dropfloor,droplift) ;
+        
+
+        $.ajax({
+            type: "POST",
+            dataType:'json',
+            url: "http://localhost/huey/code/trackverifyotp.php", //verifyotp.php
+            /*url: "http://www.loopor.com/pacemove/code/verifyotp.php",*/
+            data: data,
+             success: function(data) {
+            console.log("success", data);
+                
+            window.location = "http://localhost/huey/code/movables.php";
+             /*window.location = "http://www.loopor.com/pacemove/code/movables.php";*/
+            },
+            error: function() {
+            console.log("error", data);         
+    }     
+        });
+    });    
 });
