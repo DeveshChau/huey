@@ -1,6 +1,6 @@
 
 #logo {
-	height: 40px; 
+	height: 40px;
 }
 
 .child-page {
@@ -17,4 +17,43 @@
 
 #inquiry-form .card-header .nav-link {
 	padding: 15px;
+}
+
+#order-wrapper {
+	position: fixed;
+	width: 40%;
+	left:100px;
+	top: 250px;
+	text-align: center;
+}
+
+@media only screen and (min-width: 400px) {
+
+}
+
+@media only screen and (min-width: 500px) {
+
+}
+
+@media only screen and (min-width: 550px) {
+
+}
+
+@media only screen and (min-width: 600px) {
+
+}
+
+@media only screen and (min-width: 650px) {
+
+}
+
+@media only screen and (min-width: 750px) {
+
+}
+
+@media only screen and (min-width: 900px) {
+
+}
+@media only screen and (min-width: 950px) {
+
 }
