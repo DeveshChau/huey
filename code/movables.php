@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['usermobile'])	
+if(isset($_SESSION['usermobile'])
 ){
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ if(isset($_SESSION['usermobile'])
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
-	<body class="child-page"> 
+	<body class="child-page">
 
 	<?php
 		include 'header.php';
@@ -52,7 +52,7 @@ if(isset($_SESSION['usermobile'])
 								      	<small class="text-muted">Cupboard</small>
 								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
 								    </div>
-  								</div>  								
+  								</div>
 				  			</div>
 				  			<div class="card-deck" style="margin-bottom: 10px;">
   								<div class="card">
@@ -75,7 +75,7 @@ if(isset($_SESSION['usermobile'])
 								      	<small class="text-muted">Refrigerator</small>
 								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
 								    </div>
-  								</div>  								
+  								</div>
 				  			</div>
 				  			<div class="card-deck" style="margin-bottom: 10px;">
   								<div class="card">
@@ -98,7 +98,7 @@ if(isset($_SESSION['usermobile'])
 								      	<small class="text-muted">Owen</small>
 								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
 								    </div>
-  								</div>  								
+  								</div>
 				  			</div>
 				  			<div class="card-deck" style="margin-bottom: 10px;">
   								<div class="card">
@@ -121,8 +121,8 @@ if(isset($_SESSION['usermobile'])
 								      	<small class="text-muted">Computer</small>
 								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
 								    </div>
-  								</div>  								
-				  			</div>	
+  								</div>
+				  			</div>
 				  			<div class="input-group" style="margin-bottom: 10px;">
 								<div class="input-group-prepend">
 									<span class="input-group-text">Other Movables</span>
@@ -131,13 +131,13 @@ if(isset($_SESSION['usermobile'])
 							</div>
 							<div class="form-group" style="text-align: center;">
 								<a class="btn btn-primary" href="userdashboard.php" role="button">Next</a>
-							</div>							
+							</div>
 						</div>
 					</div>
 				<div class="col-md-1"></div>
 			</div>
 		</div>
-		</div>			
+		</div>
 	</main>
 	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
