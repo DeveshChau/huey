@@ -118,7 +118,7 @@ $(document).ready(function(){
         var dropfloor = document.getElementById("dropfloor").value;
         var droplift = document.getElementById("droplift").value;
         var pickupdate = document.getElementById("datepicker").value;
-        console.log(typeof (pickupdate));        
+        //console.log(typeof (pickupdate));        
         //append country code to mobile        
         var mobile = "91".concat(usermobile);           
         var otp = document.getElementById("otp").value;
@@ -144,7 +144,7 @@ $(document).ready(function(){
              success: function(data) {
             console.log("success", data);
                 
-            window.location = "http://localhost/huey/code/movables.php";
+            window.location = "http://localhost/huey/code/userdashboard.php";
              /*window.location = "http://www.loopor.com/pacemove/code/movables.php";*/
             },
             error: function() {
@@ -190,5 +190,9 @@ $(document).ready(function(){
             console.log("error", data);         
     }     
         });
-    });    
+    });
+
+    /*$("#currentorder").on("click",function(e){
+        console.log("success", data);
+    });*/
 });

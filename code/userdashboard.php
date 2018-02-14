@@ -1,7 +1,60 @@
 <?php
-session_start();
-if(isset($_SESSION['usermobile'])	
-){
+	session_start();
+	$usermobile = $_SESSION["usermobile"];
+	if(isset($_SESSION['usermobile'])) {	
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "test_db";
+	
+	// Create connection
+	$link = mysqli_connect($servername, $username, $password, $dbname);
+
+	if($link === false){
+	    die("ERROR: Could not connect. " . mysqli_connect_error());
+	}
+	$useridsearch = "SELECT user_id from users where dusermobile = $usermobile";
+	$useridsearchresult = mysqli_query($link, $useridsearch);
+
+	if(mysqli_num_rows($useridsearchresult)!=NULL){
+		$row = mysqli_fetch_assoc($useridsearchresult);
+		$userid = $row["user_id"];	
+		echo $userid;
+	}
+
+
+
+
+
+
+/*		
+//echo $userid;
+		$order = "SELECT * from orders where duser_id = $userid";
+		$useridsearchresult = mysqli_query($link, $order);
+		$row = mysqli_fetch_all($useridsearchresult,MYSQLI_ASSOC);
+
+		$sql = "SELECT address.daddress from address INNER JOIN orders on (orders.dpickup_id = address.address_id or orders.ddrop_id = address.address_id)"; 
+		$addresssearch = mysqli_query($link, $sql);
+		$row = mysqli_fetch_all($addresssearch,MYSQLI_ASSOC);*/
+
+		//echo sizeof($row);
+		/*foreach ($row as $key => $value) {
+ 			echo $value['dpickup_date']; echo "<br>";
+ 			echo  $value['dpickup_id'];echo "<br>";
+ 			
+ 			$test = $value['dpickup_id'];
+ 			
+ 			
+			$addresssearch = "SELECT * from address where address_id = $test";
+			echo $addresssearch;echo "<br>";
+			$addresssearchresult = mysqli_query($link, $addresssearch);
+
+			if(mysqli_num_rows($useridsearchresult)!=NULL){
+				$row = mysqli_fetch_assoc($useridsearchresult);
+				echo $row["daddress"];					
+			}
+		}*/
+		
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -29,7 +82,7 @@ if(isset($_SESSION['usermobile'])
 				  	<div class="card-header" >
 						<ul class="nav nav-pills" role="tablist" id="details-tab">
 					  		<li class="nav-item active">
-				    			<a class="nav-link active" href="#current-order" data-toggle="tab">Current Order</a>
+				    			<a class="nav-link active" href="#current-order" data-toggle="tab" id="currentorder">Current Order</a>
 					  		</li>
 					  		<li class="nav-item">
 					    		<a class="nav-link" href="#previous-order" data-toggle="tab">Previous Order</a>
@@ -41,96 +94,30 @@ if(isset($_SESSION['usermobile'])
 				  	<div class="card-body">
 						<div class="tab-content">
 					  		<div class="tab-pane fade show active" id="current-order" role="tabpanel" aria-labelledby="pickup-tab">
-								<div class="card">				  		
-							  		<div class="card-body">
-							  			<div class="card-deck" style="margin-bottom: 10px;">
-			  								<div class="card">
-											    <div class="card-footer">				      		
-											      	<small class="text-muted">Pick Up Address</small>
-											      	<p>14-02-2018</p> 
-											    </div>
-			  								</div>
-			  								<div class="card">
-											    <div class="card-footer">
-											    	<small class="text-muted">Pick Up Address</small>
-											      	<p>C706, Krishna Aeropolis, POrwal Road, Lohegaon, Pune 422037</p>	
-											    </div>
-			  								</div>
-			  								<div class="card">
-											    <div class="card-footer">
-											    	<small class="text-muted">Drop Address</small>
-											      	<p>C706, Krishna Aeropolis, POrwal Road, Lohegaon, Pune 422037</p>	
-											    </div>
-			  								</div>  								
-							  			</div>
-							  			<div class="jumbotron">		
-							  				<h1 class="">Movables</h1>
-											<!-- Dynamic table-->
-											<table class="table">
-												<tbody>
-													<tr>
-													  	<td>Mark</td>
-													  	<td>Mark</td>
-													  	<td>Otto</td>
-													  	<td>@mdo</td>
-													</tr>
-													<tr>
-												  		<td>Mark</td>
-													  	<td>Mark</td>
-													  	<td>Otto</td>
-													  	<td>@mdo</td>
-													</tr>
-													<tr>
-														<td>Mark</td>
-													  	<td>Mark</td>
-													  	<td>Otto</td>
-													  	<td>@mdo</td>
-													</tr>
-												</tbody>
-											</table>
-											<hr class="my-4">
-											<p>Dynamic movalbes </p>
-											<p class="lead"></p>							
-										</div>
+					  			<div class="container">
+									<div class="row">
+										<div class="col-md-1">Number</div>
+										<div class="col-md-1">Date</div>
+										<div class="col-md-4">Pick up address</div>	
+										<div class="col-md-4">Drop Address</div>	
+										<div class="col-md-2">Add Movalbles</div>
 									</div>
+									<div class="col-md-12">Movables</div>
 								</div>
 					  		</div>
 
 					  		<div class="tab-pane fade" id="previous-order" role="tabpanel" aria-labelledby="drop-tab">
-								<table class="table">
-								  <thead class="thead-dark">
-								    <tr>
-								      <th scope="col">#</th>
-								      <th scope="col">First</th>
-								      <th scope="col">Last</th>
-								      <th scope="col">Handle</th>
-								      <th scope="col">Details</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-								    <tr>
-								      <th scope="row">1</th>
-								      <td>Mark</td>
-								      <td>Otto</td>
-								      <td>@mdo</td>
-								      <td><img src="./img/show.png"></td>
-								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								      <td>Jacob</td>
-								      <td>Thornton</td>
-								      <td>@fat</td>
-								      <td><img src="./img/show.png"></td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>Larry</td>
-								      <td>the Bird</td>
-								      <td>@twitter</td>
-								      <td><img src="./img/show.png"></td>
-								    </tr>
-								  </tbody>
-								</table>
+								<div class="tab-pane fade show active" id="current-order" role="tabpanel" aria-labelledby="pickup-tab">
+					  			<div class="container">
+									<div class="row">
+										<div class="col-md-1">col-md-1</div>
+										<div class="col-md-1">col-md-1</div>
+										<div class="col-md-4">col-md-4</div>	
+										<div class="col-md-4">col-md-4</div>	
+										<div class="col-md-2">col-md-2</div>
+									</div>									
+								</div>
+					  		</div>
 					 		</div>					  		
 					  	</div>
 					</div>
