@@ -22,9 +22,13 @@
 	$userid = $row["pmuserid"];	
 	}
 	
-	$order = "SELECT * FROM pmorders WHERE pmuserid = '$userid' ORDER BY pmorderdate desc";
+	$order = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND pmorderdate >= CURDATE() ORDER BY pmorderdate desc";
 	$orderresult = mysqli_query($link, $order);
-	$row = mysqli_fetch_all($orderresult,MYSQLI_ASSOC);		
+	$row = mysqli_fetch_all($orderresult,MYSQLI_ASSOC);
+
+	$previousorder = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND pmorderdate < CURDATE() ORDER BY pmorderdate desc";
+	$previousorderresult = mysqli_query($link, $previousorder);
+	$row2 = mysqli_fetch_all($previousorderresult,MYSQLI_ASSOC);		
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -138,21 +142,76 @@
 									
 					  			</div>
 							</div>
-					  		<div class="tab-pane fade" id="previous-order" role="tabpanel" aria-labelledby="drop-tab">
-								<div class="tab-pane fade show active" id="current-order" role="tabpanel" aria-labelledby="pickup-tab">
+					  		<div class="tab-pane fade show" id="previous-order" role="tabpanel" aria-labelledby="previous-order">
 					  			<div class="container">
+					  				<div class="row">
+					  					<br>
+										<div class="col-md-2">
+							 			<h5>Number</h5>
+							 			</div>
+							 			<div class="col-md-2">
+							 			<h5>Date</h5>
+							 			</div>
+							 			<div class="col-md-4">
+							 			<h5>Pick Up address</h5>
+							 			</div>
+								 		<div class="col-md-4">
+										<h5>Drop Location</h5>
+							 			</div>
+							 			<br>
+								 	</div>
+					  				<?php foreach ($row2 as $key => $value) {?>
 									<div class="row">
-										<div class="col-md-1">col-md-1</div>
-										<div class="col-md-1">col-md-1</div>
-										<div class="col-md-4">col-md-4</div>	
-										<div class="col-md-4">col-md-4</div>	
-										<div class="col-md-2">col-md-2</div>
-									</div>									
-								</div>
+										<div class="col-md-2">
+							 			<?php echo  $key;?>
+							 			</div>
+							 			<div class="col-md-2">
+							 			<?php echo  $value['pmorderdate'];?>
+							 			</div>
+							 			<div class="col-md-4">
+							 			<?php echo  $value['pmorderpickuplocation'];?>
+							 			</div>
+							 			<div class="col-md-4">
+							 			<?php echo  $value['pmorderdroplocation'];?>
+							 			<?php echo $value['pmuserid'];?>
+							 			</div>
+							 			<br>
+								 	</div>		
+								 	<br>					 			
+									<div class="row">
+								 		<div class="col-md-6">
+								 			<?php 
+								 			$user = $value['pmuserid'];
+								 			$order = $value['pmorderid'];											
+											$movable = "SELECT * FROM pmmovables WHERE pmuserid ='$user' 
+											AND pmorderid = '$order'";
+											$movableresult = mysqli_query($link, $movable);
+								 			if(mysqli_num_rows($movableresult)!=NULL){
+
+												$row = mysqli_fetch_assoc($movableresult);
+												$itemother = $row["pmothermovables"];	
+												$item = $row["pmitems"];
+
+											}
+											echo "<h5>Movables :</h5>";
+											echo $item;
+											?>
+										</div>
+										<div class="col-md-6">
+											<?php
+											echo "<h5> Your Special Mention : </h5> ";
+											echo $itemother;
+								 			?>
+								 		</div>
+								 		<hr/>
+								 	</div>
+								 	
+								 	<?php }?>									 
+									
 					  			</div>
-					 		</div>					  		
-					  	</div>
-					</div>
+							</div>					  		
+					  	</div> <!-- tab content -->
+					</div><!-- card body-->
 				</div><!-- card -->
 			</div><!-- /.col-md-12 -->
 		</div><!-- /.row -->
