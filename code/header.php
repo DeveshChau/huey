@@ -8,7 +8,7 @@
 		  <nav class="">
 		  	 
 			    <?php if (isset($_SESSION['usermobile'])) { ?>
-			    <div class="dropdown show">
+			    <div class="dropdown">
 					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<?php echo $_SESSION['usermobile']?>
 					</a>
@@ -25,14 +25,14 @@
 				      		<div class="modal-body">
 								<ul class="nav nav-pills nav-fill" role="tablist" id="tack-tab">
 						  			<li class="nav-item active" hidden>
-						    		<a class="nav-link active" href="#track-mobile-modal" data-toggle="tab">Pickup</a>
+						    			<a class="nav-link" href="#track-mobile-modal" data-toggle="tab">Pickup</a>
 						  			</li>
 						  			<li class="nav-item" hidden>
 						    			<a class="nav-link" href="#track-otp-modal" data-toggle="tab">Drop</a>
 						  			</li>						  			
 								</ul>
 								<div class="tab-content" id="bookingTabContent">
-							  		<div class="tab-pane fade show active" id="track-mobile-modal" role="tabpanel" aria-labelledby="pickup-tab">								
+							  		<div class="tab-pane fade show active" id="track-mobile-modal" role="tabpanel" aria-labelledby="track-mobile-modal-tab">								
 										<form>											
 											<div class="form-group">
 												<label for="header-track-user-mobile">Enter Mobile Number</label>
@@ -42,12 +42,12 @@
 										  	<br>
 
 										  	<div class="form-group" style="text-align: center;">
-												<button type="button" class="btn btn-primary  btn-lg " id="header-track-next">Next</button>
+											<button type="button" class="btn btn-primary  btn-lg " id="header-track-next">Next</button>
 										 	</div>	
 										</form>
 							  		</div>				
 				      			
-							  		<div class="tab-pane fade" id="track-otp-modal" role="tabpanel" aria-labelledby="pickup-tab">								
+							  		<div class="tab-pane fade" id="track-otp-modal" role="tabpanel" aria-labelledby="track-otp-modal-tab">								
 										<form>											
 											<div class="form-group">
 												<label for="header-track-otp">Enter OTP</label>

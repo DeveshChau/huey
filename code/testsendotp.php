@@ -1,4 +1,4 @@
 <?php
 	$usermobile = "devesh";
-  	echo $usermobile;
+  	echo json_encode($usermobile);
 ?>

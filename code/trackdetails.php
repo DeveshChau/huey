@@ -46,8 +46,8 @@ session_start();
 								  	<div class="form-group">
 										<label for="trackpickupdate">Date</label>
 									  	<div class="input-group date">
-									      	<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY">
-									  	</div>
+											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY">
+										</div>
 								  	</div>
 
 								  	<div class="form-group">
@@ -77,11 +77,10 @@ session_start();
 								  <br>
 
 								  <div class="form-group" style="text-align: center;">
-									<button type="button" class="btn btn-primary  btn-lg " id="pickup-next">Next</button>
-								  </div>	
+									<button type="button" class="btn btn-primary  btn-lg " id="trackpickupnext">Next</button>
+								  </div>
 
 								</form>
-
 					  		</div>
 
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
@@ -113,9 +112,9 @@ session_start();
 
 								  <br>								
 								  <div class="form-group" style="text-align: center;">
-									<button type="button" class="btn btn-primary  btn-lg " id="drop-previous">Previous</button>
+									<button type="button" class="btn btn-primary  btn-lg " id="trackdropprevious">Previous</button>
 																		
-									<button type="button" class="btn btn-primary  btn-lg" id="track-drop-next">Next</a>									
+									<button type="button" class="btn btn-primary  btn-lg" id="trackdropnext">Next</a>									
 								  </div>	
 																	  
 								</form>

@@ -13,12 +13,11 @@ session_start();
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
 		<link rel="stylesheet" href="./css/style.css">
   	</head>
-  	<body class="child-page"> 
-
+  	<body class="child-page">
+  	
 	<?php
 		include 'header.php';
 	?>
-
 	<main role="main" >
 		<br><br>
 	<div class="container">
@@ -34,34 +33,23 @@ session_start();
 						  <li class="nav-item">
 						    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
 						  </li>
-						  <?php
-						  if(!isset($_SESSION['usermobile'])	
-							){
-							?>
+						  
 						  <li class="nav-item">
 						    <a class="nav-link" href="#profile" data-toggle="tab">Profile</a>
 						  </li>
-						  <?php } ?>
 						</ul>
 				  	</div>
 
 				  	<div class="card-body">
 						<div class="tab-content" id="bookingTabContent">
-					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
-						
+					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">						
 								<form data-toggle="validator" role="form">
-
 								  <div class="form-group">
 									<label for="pickupdate">Date</label>
-
-  <div class="input-group date">
-      <input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY">
-  </div>
-
-
-
+										<div class="input-group date">
+											<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY">
+										</div>
 								  </div>
-
 								  <div class="form-group">
 									<label for="pickupLocationApartment">Location / Apartment</label>
 									<input type="text" class="form-control" id="pickupLocationApartment" placeholder="Enter your Location / Apartment" required>
@@ -126,14 +114,9 @@ session_start();
 								  <br>								
 								  <div class="form-group" style="text-align: center;">
 									<button type="button" class="btn btn-primary  btn-lg " id="drop-previous">Previous</button>
-									<?php 
-										if(!isset($_SESSION['usermobile'])	
-										){
-									?>
+									
 									<button type="button" class="btn btn-primary  btn-lg " id="drop-next">Next</button>
-									<?php } else { ?>									
-									<a class="btn btn-primary  btn-lg" id="track-drop-next" href="movables.php">Next</a>
-									<?php } ?>
+										
 								  </div>	
 																	  
 								</form>

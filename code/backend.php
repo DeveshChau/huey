@@ -75,7 +75,7 @@
 
   $sql4 = "INSERT INTO pm_movables (movables,other_movables,user_id) VALUES ('$chk', 'asd', '1')";
 
-  $sql5  = "INSERT INTO pm_date (pm_date_col) VALUES ('$nice_date')";
+  $sql5  = "INSERT INTO pm_da (pm_date) VALUES ('$nice_date')";
   
 	mysqli_select_db($conn, 'test_db');
   $retval2 = mysqli_query($conn, $sql5);

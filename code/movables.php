@@ -1,7 +1,55 @@
 <?php
 session_start();
-if(isset($_SESSION['usermobile'])
-){
+
+if(isset($_SESSION['usermobile'])){
+	$usermobile = $_SESSION['usermobile'];
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "pm_huey";
+
+	$link = mysqli_connect($servername, $username, $password, $dbname);
+
+	if($link === false){
+	    die("ERROR: Could not connect. " . mysqli_connect_error());
+	}
+
+	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
+	echo $useridsearch; echo "<br>";
+	$useridsearchresult = mysqli_query($link, $useridsearch);
+
+	if(mysqli_num_rows($useridsearchresult)!=NULL){
+
+		$row = mysqli_fetch_assoc($useridsearchresult);
+
+		$userid = $row["pmuserid"];
+	}
+	echo $userid; echo "<br>";
+
+	$ordersearch = "SELECT pmorderid FROM pmorders 
+	WHERE pmuserid = $userid ORDER BY pmorderid DESC LIMIT 1";
+	$orderid = mysqli_query($link, $ordersearch);
+	if(mysqli_num_rows($orderid)!=NULL){
+
+		$row = mysqli_fetch_assoc($orderid);
+
+		$orderid = $row["pmorderid"];
+	}
+	if(isset($_POST['btnSubmit'])){
+		$otheritems = $_POST['otheritems'];        
+	    $checkbox = $_POST['movable'];
+	    $chk = $_POST['movable[0]'];
+	    echo $otheritems;
+	    foreach($checkbox as $chk1) {
+	      $items.=$chk1.",";
+	    }
+	    $movableitems = "INSERT INTO pmmovables (pmorderid,pmuserid,pmitems,pmothermovables) 
+        VALUES ('$orderid', '$userid', '$items', '$otheritems'	)";
+    	$movableresult = mysqli_query($link, $movableitems);
+    	header('location: userdashboard.php');
+    }
+	echo $orderid;
+
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -15,7 +63,6 @@ if(isset($_SESSION['usermobile'])
 		<link rel="stylesheet" href="./css/style.css">
 	</head>
 	<body class="child-page">
-
 	<?php
 		include 'header.php';
 	?>
@@ -31,26 +78,27 @@ if(isset($_SESSION['usermobile'])
 				  			You can help us by describing your movables
 				  		</div>
 				  		<div class="card-body">
+				  			<form id="movablesform" method="POST">
 				  			<div class="card-deck" style="margin-bottom: 10px;">
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/tv.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Television</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Television">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/sofa.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Sofa</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Sofa">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/cupboard.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Cupboard</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Cupboard">
 								    </div>
   								</div>
 				  			</div>
@@ -59,21 +107,21 @@ if(isset($_SESSION['usermobile'])
 								    <div class="card-footer">
 								    	<img class="" src="./img/cycle.png" alt="Card image cap" style="height: 40px;width: 50px;">
 								      	<small class="text-muted">Cycle</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Cycle">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/chair.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Chair</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Chair">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/refrigerator.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Refrigerator</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Refrigerator">
 								    </div>
   								</div>
 				  			</div>
@@ -82,21 +130,21 @@ if(isset($_SESSION['usermobile'])
 								    <div class="card-footer">
 								    	<img class="" src="./img/washingmachine.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">washing machine</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="WashingMachine">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/ac.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">A.C.</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="A.C.">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/owen.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Owen</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Owen ">
 								    </div>
   								</div>
 				  			</div>
@@ -105,21 +153,21 @@ if(isset($_SESSION['usermobile'])
 								    <div class="card-footer">
 								    	<img class="" src="./img/cot.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Cot</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Cot">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/table.png" alt="Card image cap" style="height: 40px;width: 40px;">
 								      	<small class="text-muted">Table</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Table">
 								    </div>
   								</div>
   								<div class="card">
 								    <div class="card-footer">
 								    	<img class="" src="./img/computer.png" alt="Card image cap" style="height: 40px;width: 60px;">
 								      	<small class="text-muted">Computer</small>
-								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input">
+								      	<input class="float-right" type="checkbox" aria-label="Checkbox for following text input" name="movable[]" value="Computer">
 								    </div>
   								</div>
 				  			</div>
@@ -127,25 +175,26 @@ if(isset($_SESSION['usermobile'])
 								<div class="input-group-prepend">
 									<span class="input-group-text">Other Movables</span>
 								</div>
-								<textarea class="form-control" aria-label="With textarea" placeholder="Something Important you want to mention"></textarea>
+								<textarea class="form-control" aria-label="With textarea" placeholder="Something Important you want to mention" name="otheritems"></textarea>
 							</div>
 							<div class="form-group" style="text-align: center;">
-								<a class="btn btn-primary" href="userdashboard.php" role="button">Next</a>
+								<input type="submit" name="btnSubmit" value="Save" class="btn btn-submit" />
 							</div>
+						</form>
 						</div>
 					</div>
 				<div class="col-md-1"></div>
 			</div>
 		</div>
 		</div>
-	</main>
 	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
 	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
-</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+  </body>
 </html>
 <?php
 	}
