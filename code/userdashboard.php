@@ -131,7 +131,7 @@
 											echo $itemother;
 								 			?>
 								 		</div>
-								 		<hr>
+								 		<hr/>
 								 	</div>
 								 	
 								 	<?php }?>									 

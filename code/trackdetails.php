@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(isset($_SESSION['usermobile'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -152,3 +153,9 @@ session_start();
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
 </html>
+<?php
+	}
+	else{
+		header('location: index.php');
+	}
+?>
