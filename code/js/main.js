@@ -27,7 +27,8 @@ $(document).ready(function(){
     }); 
 
     $('#trackpickupdate').datepicker({
-        format: 'mm/dd/yyyy'
+        format: 'mm/dd/yyyy',
+        startDate: '+1d'
     });    
     
     $("#trackdropnext").on("click", function(e){
@@ -134,7 +135,8 @@ $(document).ready(function(){
         });
 	});	
     $('#datepicker').datepicker({
-        format: 'mm/dd/yyyy'
+        format: 'mm/dd/yyyy',
+        startDate: '+1d'
     });
 
 
