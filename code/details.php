@@ -43,11 +43,12 @@ session_start();
 				  	<div class="card-body">
 						<div class="tab-content" id="bookingTabContent">
 					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">						
-								<form data-toggle="validator" role="form">
+								<form data-toggle="validator" role="form" id="pickupform">
 								  <div class="form-group">
 									<label for="pickupdate">Date</label>
 										<div class="input-group date">
-											<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY">
+									<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY" required>
+									<div class="help-block with-errors"></div>
 										</div>
 								  </div>
 								  <div class="form-group">
@@ -85,11 +86,11 @@ session_start();
 					  		</div>
 
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
-								<form>
+								<form data-toggle="validator">
 
 								  <div class="form-group">
 									<label for="dropLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="dropLocationApartment" placeholder="Enter your Location / Apartment">
+									<input type="text" class="form-control" id="dropLocationApartment" placeholder="Enter your Location / Apartment" required>
 								  </div>
 
 								  <div class="form-group">
@@ -122,21 +123,23 @@ session_start();
 								</form>
 					 		</div>
 					  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							  	<form id="profileinfo" name="profileinfo">
+							  	<form id="profileinfo" name="profileinfo" data-toggle="validator">
 
 								  <div class="form-group">
 									<label for="username">Name</label>
-									<input type="text" class="form-control" id="username" placeholder="Enter your Name">
+									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required>
 								  </div>
 
 								  <div class="form-group">
 									<label for="useremail">Email</label>
-									<input type="text" class="form-control" id="useremail" placeholder="Enter your Email">
+									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email">
+									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
 									<label for="usermobile">Mobile</label>							
-									<input type="text" name="" id="usermobile" class="form-control" >
+									<input type="number" name="" id="usermobile" class="form-control" required>
+									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <br>
@@ -181,13 +184,7 @@ session_start();
 	    </div>
 	  </div>
 	</div>
-	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+	<?php include 'footer.php';?>
 	<script type="text/javascript">
       function activatePlacesSearch(){
         var input1 = document.getElementById('pickupLocationApartment');

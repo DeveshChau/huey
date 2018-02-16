@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	
+
 	$('#details-tab a').on('click', function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
 	})
-
 	
-	$("#pickup-next").on("click", function(e){        
+	$("#pickup-next").on("click", function(e){                
         $("a[href='#drop']").tab("show");        
 	});	
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
     $('#trackpickupdate').datepicker({
         format: 'mm/dd/yyyy',
-        startDate: '+1d'
+        
     });    
     
     $("#trackdropnext").on("click", function(e){
@@ -63,7 +63,7 @@ $(document).ready(function(){
             window.location = "http://localhost/huey/code/movables.php";
              /*window.location = "http://www.loopor.com/pacemove/code/movables.php";*/
             },
-            error: function() {
+            error: function(data) {
             console.log("error", data);         
             }     
         });
@@ -73,23 +73,27 @@ $(document).ready(function(){
 		$("a[href='#drop']").tab("show");
 	});
 
-	$("#header-track-next").on("click", function(e){
-        console.log("success");
-		$("a[href='#track-otp-modal']").tab("show");
+	$("#header-track-next").on("click", function(e){        
 		var usermobile = document.getElementById("header-track-user-mobile").value;
 		//append country code to mobile
 		var mobile = "91".concat(usermobile);		
-		var data = {mobile: mobile, usermobile: usermobile};        
-       console.log(usermobile);
+		var data = {mobile: mobile, usermobile: usermobile};
+        console.log(usermobile);               
         $.ajax({
             type: "POST",
             dataType:'json',
+            data: {usermobile: usermobile},
             url: "http://localhost/huey/code/testsendotp.php", //sendotp.php
             /*url: "http://www.loopor.com/pacemove/code/sendotp.php",*/
             data: data,
             success: function(data) {
+            $("a[href='#track-otp-modal']").tab("show");
             console.log("returnedData", data);
-          	}
+          	},
+            error: function(data) {
+                window.location = "http://localhost/huey/code/details.php";
+            console.log("error", data);         
+            } 
         });
 	});
 
@@ -112,7 +116,7 @@ $(document).ready(function(){
             window.location = "http://localhost/huey/code/userdashboard.php";
              /*window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";*/
             },
-            error: function() {
+            error: function(data) {
             console.log("error", data);         
             }     
         });		
@@ -183,7 +187,7 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
             /*window.location = "http://localhost/huey/code/userdashboard.php";*/
             window.location = "http://localhost/huey/code/movables.php";
             },
-            error: function() {
+            error: function(data) {
             console.log("error", data);         
             }     
         });   

@@ -43,8 +43,8 @@ if(isset($_SESSION['usermobile'])){
 	    foreach($checkbox as $chk1) {
 	      $items.=$chk1.",";
 	    }
-	    $movableitems = "INSERT INTO pmmovables (pmorderid,pmuserid,pmitems,pmothermovables) 
-        VALUES ('$orderid', '$userid', '$items', '$otheritems'	)";
+	    $movableitems = "INSERT INTO pmmovables (pmorderid,pmuserid,pmitems,pmothermovables,pmmovablestimestamp) 
+        VALUES ('$orderid', '$userid', '$items', '$otheritems',CURRENT_TIMESTAMP)";
     	$movableresult = mysqli_query($link, $movableitems);
     	header('location: userdashboard.php');
     }
@@ -187,13 +187,7 @@ if(isset($_SESSION['usermobile'])){
 			</div>
 		</div>
 		</div>
-	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+	<?php include 'footer.php';?>
   </body>
 </html>
 <?php
