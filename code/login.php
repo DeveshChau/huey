@@ -14,9 +14,9 @@
     <?php    
     session_start();
     $servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname = "pm_huey";
+  	$username = "root";
+  	$password = "root";
+  	$dbname = "pm_huey";
 	
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -37,6 +37,7 @@ and password='".md5($password)."'";
       $result = mysqli_query($conn,$query)  or die(mysqli_error());
       $rows = mysqli_num_rows($result);
             if($rows == 1){
+              $_SESSION["sessionvariable"] = "set";
               $_SESSION["usermobile"] = $username;
 
               header('location: admindashboard.php');

@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	$usermobile = $_SESSION["usermobile"];
-	if(isset($_SESSION['usermobile'])){	
+	
+	if(isset($_SESSION['sessionvariable'])){	
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
@@ -12,6 +12,8 @@
 	if($link === false){
 	    die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
+
+	$usermobile = $_SESSION["usermobile"];
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
 	$useridsearchresult = mysqli_query($link, $useridsearch);
 
@@ -22,11 +24,11 @@
 	$userid = $row["pmuserid"];	
 	}
 	
-	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.pmuserid = '$userid' AND pmorders.pmorderdate >= CURDATE() ORDER BY pmorders.pmorderdate";
+	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.pmuserid = '$userid' AND pmorders.statuslist != 'Drop' ORDER BY pmorders.pmorderdate";
 	$orderresult = mysqli_query($link, $order);
 	$row = mysqli_fetch_all($orderresult,MYSQLI_ASSOC);
 
-	$previousorder = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND pmorderdate < CURDATE() ORDER BY pmorderdate desc";
+	$previousorder = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND statuslist = 'Drop' ORDER BY pmorderdate desc";
 	$previousorderresult = mysqli_query($link, $previousorder);
 	$row2 = mysqli_fetch_all($previousorderresult,MYSQLI_ASSOC);		
 ?>
@@ -131,7 +133,8 @@
 										<div class="col-md-1">
 											<div><?php echo $value['statuslist'];?></div>
 										</div>
-								 	</div>								 	
+								 	</div>	
+								 	<hr>							 	
 								 	<?php }?>
 					  			</div>
 							</div>
@@ -140,7 +143,7 @@
 					  				<div class="row">
 					  					<br>
 							 			<div class="col-md-2">
-							 			<h5>Date</h5>
+							 			<h5>Date(Y:M:D)</h5>
 							 			</div>
 							 			<div class="col-md-3">
 							 			<h5>Pick Up address</h5>
@@ -157,7 +160,7 @@
 							 			<br>
 								 	</div>
 					  				<?php foreach ($row2 as $key => $value) {?>
-									<div class="row">										
+									<div class="row">
 							 			<div class="col-md-2">
 							 			<?php echo  $value['pmorderdate'];?>
 							 			</div>
@@ -168,8 +171,8 @@
 							 			</div>
 							 			<div class="col-md-3">
 							 			<?php echo  $value['pmorderdroplocation'];?>
-							 			<div><?php echo "Lift: ". $value['pmorderdroplift'];?></div>
-							 			<div><?php echo "Floor: ". $value['pmorderdropfloor'];?></div>							 			
+							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
+							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
 							 			</div>
 							 			<div class="col-md-3">
 								 			<?php 
@@ -189,14 +192,13 @@
 											echo $itemother;
 											?>
 										</div>
-
 										<div class="col-md-1">
 											<div><?php echo $value['statuslist'];?></div>
 										</div>
-								 	</div>
+								 	</div>	
+								 	<hr>							 	
 								 	<?php }?>
 					  			</div>
-							</div>					  		
 					  	</div> <!-- tab content -->
 					</div><!-- card body-->
 				</div><!-- card -->

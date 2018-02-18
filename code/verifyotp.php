@@ -27,8 +27,9 @@ curl_close($curl);
 session_start();
 
 if ($err) {
-  echo "cURL Error #:" . $err;
+  echo json_encode("cURL Error #:" . $err);
 } else {
   $_SESSION["usermobile"] = $usermobile;
-  echo $response;
+  $_SESSION["sessionvariable"] = "set";
+  echo json_encode($response);
 }

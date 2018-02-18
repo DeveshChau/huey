@@ -161,7 +161,7 @@ session_start();
 			<div class="col-md-2"></div>
 
 		</div>
-	  </div>
+	 </div>
 
 	</main><!-- /.container -->
 

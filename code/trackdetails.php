@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['usermobile'])){
+if(isset($_SESSION['sessionvariable'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">

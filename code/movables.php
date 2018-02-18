@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['usermobile'])){
-	$usermobile = $_SESSION['usermobile'];
+if(isset($_SESSION['sessionvariable'])){	
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
@@ -13,6 +12,8 @@ if(isset($_SESSION['usermobile'])){
 	if($link === false){
 	    die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
+
+	$usermobile = $_SESSION['usermobile'];
 
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
 	echo $useridsearch; echo "<br>";
