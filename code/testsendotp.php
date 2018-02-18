@@ -12,7 +12,7 @@
 	}
 	
 
-	$otp = rand(1000,9999);
+	/*$otp = rand(1000,9999);
 	$mobile = $_POST['mobile'];
 
 	$curl = curl_init();
@@ -38,18 +38,7 @@
 
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
-	} else {  
+	} else {  */
 	  echo json_encode($response);
-	}
-
-	/*$usermobile = mysqli_real_escape_string($link,$_POST['usermobile']);
-	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
-	$useridsearchresult = mysqli_query($link, $useridsearch);
-	
-	if(mysqli_num_rows($useridsearchresult)!=NULL){
-		$row = mysqli_fetch_assoc($useridsearchresult);
-		$userid = $row["pmuserid"];	
-		$_SESSION["usermobile"] = $usermobile;
-		echo json_encode($usermobile);
-	}*/
+	/*}*/
 ?>

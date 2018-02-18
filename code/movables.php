@@ -192,7 +192,7 @@ if(isset($_SESSION['sessionvariable'])){
 </html>
 <?php
 	}
-	else{
+	/*else{
 		header('location: index.php');
-	}
+	}*/
 ?>

@@ -25,7 +25,7 @@ $droplift = mysqli_real_escape_string($link,$_POST['droplift']);
 $pickupdate = date("Y-m-d", strtotime(mysqli_real_escape_string($link,$_POST['pickupdate'])));
 
 
-
+/*
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -53,7 +53,7 @@ if ($err) {
 	echo json_encode("cURL Error #:" . $err);
 } 
 else {
-
+*/
 
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
 	$useridsearchresult = mysqli_query($link, $useridsearch);
@@ -95,7 +95,7 @@ else {
 		$ordersresult = mysqli_query($link, $orders);
 
 	}
-	  echo json_encode($response);
-}
+	  echo json_encode($usermobile);
+/*}*/
 
 ?>
