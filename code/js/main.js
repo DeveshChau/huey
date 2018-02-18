@@ -86,7 +86,7 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
             console.log("success", data);
             
             /*window.location = "http://localhost/huey/code/userdashboard.php";*/
-            /*window.location = "http://localhost/huey/code/movables.php";*/
+            window.location = "http://localhost/huey/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);         
