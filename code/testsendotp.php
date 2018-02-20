@@ -39,6 +39,6 @@
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
 	} else {  */
-	  echo json_encode($response);
+	  echo json_encode($servername);
 	/*}*/
 ?>

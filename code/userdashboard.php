@@ -24,13 +24,6 @@
 	$userid = $row["pmuserid"];	
 	}
 	
-	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.pmuserid = '$userid' AND pmorders.statuslist != 'Drop' ORDER BY pmorders.pmorderdate";
-	$orderresult = mysqli_query($link, $order);
-	$row = mysqli_fetch_all($orderresult,MYSQLI_ASSOC);
-
-	$previousorder = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND statuslist = 'Drop' ORDER BY pmorderdate desc";
-	$previousorderresult = mysqli_query($link, $previousorder);
-	$row2 = mysqli_fetch_all($previousorderresult,MYSQLI_ASSOC);		
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -97,33 +90,37 @@
 							 			</div>
 							 			<br>
 								 	</div>
-					  				<?php foreach ($row as $key => $value) {?>
+					  				<?php $order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.pmuserid = '$userid' AND pmorders.statuslist != 'Drop' ORDER BY pmorders.pmorderdate";
+	$orderresult = mysqli_query($link, $order);
+	while ($row = $orderresult->fetch_assoc()) { ?>
+             
+      
 									<div class="row">
 							 			<div class="col-md-2">
-							 			<?php echo  $value['pmorderdate'];?>
+							 			<?php echo  $row['pmorderdate'];?>
 							 			</div>
 							 			<div class="col-md-3">
-							 			<?php echo  $value['pmorderpickuplocation'];?>
-							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
-							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
+							 			<?php echo  $row['pmorderpickuplocation'];?>
+							 			<div><?php echo "Lift: ". $row['pmorderpickuplift'];?></div>
+							 			<div><?php echo "Floor: ". $row['pmorderpickupfloor'];?></div>
 							 			</div>
 							 			<div class="col-md-3">
-							 			<?php echo  $value['pmorderdroplocation'];?>
-							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
-							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
+							 			<?php echo  $row['pmorderdroplocation'];?>
+							 			<div><?php echo "Lift: ". $row['pmorderpickuplift'];?></div>
+							 			<div><?php echo "Floor: ". $row['pmorderpickupfloor'];?></div>
 							 			</div>
 							 			<div class="col-md-3">
 								 			<?php 
-								 			$user = $value['pmuserid'];
-								 			$order = $value['pmorderid'];											
+								 			$user = $row['pmuserid'];
+								 			$order = $row['pmorderid'];											
 											$movable = "SELECT * FROM pmmovables WHERE pmuserid ='$user' 
 											AND pmorderid = '$order'";
 											$movableresult = mysqli_query($link, $movable);
 								 			if(mysqli_num_rows($movableresult)!=NULL){
 
-												$row = mysqli_fetch_assoc($movableresult);
-												$itemother = $row["pmothermovables"];	
-												$item = $row["pmitems"];
+												$row1 = mysqli_fetch_assoc($movableresult);
+												$itemother = $row1["pmothermovables"];	
+												$item = $row1["pmitems"];
 
 											}
 											echo $item;
@@ -131,11 +128,11 @@
 											?>
 										</div>
 										<div class="col-md-1">
-											<div><?php echo $value['statuslist'];?></div>
+											<div><?php echo $row['statuslist'];?></div>
 										</div>
 								 	</div>	
 								 	<hr>							 	
-								 	<?php }?>
+								 	<?php  } ?>
 					  			</div>
 							</div>
 					  		<div class="tab-pane fade show" id="previous-order" role="tabpanel" aria-labelledby="previous-order">
@@ -159,25 +156,27 @@
 							 			</div>
 							 			<br>
 								 	</div>
-					  				<?php foreach ($row2 as $key => $value) {?>
+					  				<?php $previousorder = "SELECT * FROM pmorders WHERE pmuserid = '$userid' AND statuslist = 'Drop' ORDER BY pmorderdate desc";
+	$previousorderresult = mysqli_query($link, $previousorder);
+	while ($row2 = $previousorderresult->fetch_assoc()) {?>
 									<div class="row">
 							 			<div class="col-md-2">
-							 			<?php echo  $value['pmorderdate'];?>
+							 			<?php echo  $row2['pmorderdate'];?>
 							 			</div>
 							 			<div class="col-md-3">
-							 			<?php echo  $value['pmorderpickuplocation'];?>
-							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
-							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
+							 			<?php echo  $row2['pmorderpickuplocation'];?>
+							 			<div><?php echo "Lift: ". $row2['pmorderpickuplift'];?></div>
+							 			<div><?php echo "Floor: ". $row2['pmorderpickupfloor'];?></div>
 							 			</div>
 							 			<div class="col-md-3">
-							 			<?php echo  $value['pmorderdroplocation'];?>
-							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
-							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
+							 			<?php echo  $row2['pmorderdroplocation'];?>
+							 			<div><?php echo "Lift: ". $row2['pmorderpickuplift'];?></div>
+							 			<div><?php echo "Floor: ". $row2['pmorderpickupfloor'];?></div>
 							 			</div>
 							 			<div class="col-md-3">
 								 			<?php 
-								 			$user = $value['pmuserid'];
-								 			$order = $value['pmorderid'];											
+								 			$user = $row2['pmuserid'];
+								 			$order = $row2['pmorderid'];											
 											$movable = "SELECT * FROM pmmovables WHERE pmuserid ='$user' 
 											AND pmorderid = '$order'";
 											$movableresult = mysqli_query($link, $movable);
@@ -193,7 +192,7 @@
 											?>
 										</div>
 										<div class="col-md-1">
-											<div><?php echo $value['statuslist'];?></div>
+											<div><?php echo $row2['statuslist'];?></div>
 										</div>
 								 	</div>	
 								 	<hr>							 	

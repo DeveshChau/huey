@@ -24,11 +24,15 @@
 	
 	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist != 'Drop' ORDER BY pmorders.pmorderdate  ASC";
 	$orderresult = mysqli_query($link, $order);
-	$row = mysqli_fetch_all($orderresult,MYSQLI_ASSOC);
+	while($arr = mysqli_fetch_assoc($orderresult)) {
+    $row[] = $arr;
+}
 
 	$previousorder = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist = 'Drop' ORDER BY pmorders.pmorderdate  desc";
 	$previousorderresult = mysqli_query($link, $previousorder);
-	$row2 = mysqli_fetch_all($previousorderresult,MYSQLI_ASSOC);
+	while($arr = mysqli_fetch_assoc($previousorderresult)) {
+    $row2[] = $arr;
+}
 	
 ?>
 <!DOCTYPE html>

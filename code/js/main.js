@@ -31,16 +31,14 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            data: data,
-            /*url: "http://localhost/huey/code/testsendotp.php", */
+            data: data,            
             url: "http://www.loopor.com/pacemove/code/testsendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#otpModal']").tab("show");
             console.log("returnedData", data);
             },
-            error: function(data) {
-            /*window.location = "http://localhost/huey/code/details.php";*/
+            error: function(data) {            
             window.location = "http://www.loopor.com/pacemove/code/details.php";
             console.log("error", data);         
             } 
@@ -58,11 +56,10 @@ $(document).ready(function(){
         var dropfloor = document.getElementById("dropfloor").value;
         var droplift = document.getElementById("droplift").value;
         var pickupdate = document.getElementById("datepicker").value;
-        //console.log(typeof (pickupdate));        
         //append country code to mobile        
         var mobile = "91".concat(usermobile);           
         var otp = document.getElementById("otp").value;
-console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLocationApartment);
+        console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLocationApartment);
 
         var data = {mobile: mobile, 
                     otp: otp, 
@@ -80,14 +77,11 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
         $.ajax({
             type: "POST",
             dataType:'json',
-            /*url: "http://localhost/huey/code/testverifyotp.php", */
             url: "http://www.loopor.com/pacemove/code/testverifyotp.php",
             data: data,
-             success: function(data) {
+            success: function(data) {
             console.log("success", data);
-            
-            /*window.location = "http://localhost/huey/code/userdashboard.php";*/
-            window.location = "http://loopor.com/pacemove/code/movables.php";
+            window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);         
@@ -132,7 +126,7 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
             console.log("returnedData", data);
             },
             error: function(data) {
-            window.location = "http://loopor.com/pacemove/details.php";
+            window.location = "http://www.loopor.com/pacemove/code/details.php";
             console.log("error", data);         
             } 
         });
@@ -147,15 +141,13 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
         console.log(usermobile);       
         $.ajax({
             type: "POST",
-            dataType:'json',
-            /*url: "http://localhost/huey/code/trackverifyotp.php",*/
+            dataType:'json',            
             url: "http://www.loopor.com/pacemove/code/trackverifyotp.php",
             data: data,
             success: function(data) {
-            console.log("returnedData", data);
-                
-            /*window.location = "http://localhost/huey/code/userdashboard.php";*/
+                                    
              window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
+console.log("returnedData", data);
             },
             error: function(data) {
             console.log("error", data);         
@@ -180,19 +172,13 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
                     dropfloor: dropfloor,
                     dropLocationApartment: dropLocationApartment,
                     pickupdate: pickupdate};
-        /*console.log(pickuplift,pickupfloor,pickupLocationApartment,dropLocationApartment,dropfloor,droplift) ;*/
-        
-
         $.ajax({
             type: "POST",
-            dataType:'json',
-            /*url: "http://localhost/huey/code/trackinsertorder.php", */
+            dataType:'json',            
             url: "http://www.loopor.com/pacemove/code/trackinsertorder.php",
             data: data,
-             success: function(data) {
-            console.log("success", data);
-                
-            /*window.location = "http://localhost/huey/code/movables.php";*/
+            success: function(data) {
+            console.log("success", data);                            
             window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
@@ -208,8 +194,7 @@ console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLoc
 		var data = {mobile: mobile};        
         $.ajax({
             type: "POST",
-            dataType:'json',
-            /*url: "http://localhost/huey/code/test.php", */
+            dataType:'json',            
             url: "http://www.loopor.com/pacemove/code/retryotp.php",
             data: data,
             success: function(data) {

@@ -15,7 +15,7 @@ if(isset($_SESSION['sessionvariable'])){
 	$usermobile = $_SESSION['usermobile'];
 
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
-	echo $useridsearch; echo "<br>";
+	
 	$useridsearchresult = mysqli_query($link, $useridsearch);
 
 	if(mysqli_num_rows($useridsearchresult)!=NULL){
@@ -24,7 +24,7 @@ if(isset($_SESSION['sessionvariable'])){
 
 		$userid = $row["pmuserid"];
 	}
-	echo $userid; echo "<br>";
+	
 
 	$ordersearch = "SELECT pmorderid FROM pmorders 
 	WHERE pmuserid = $userid ORDER BY pmorderid DESC LIMIT 1";
@@ -48,7 +48,7 @@ if(isset($_SESSION['sessionvariable'])){
     	$movableresult = mysqli_query($link, $movableitems);
     	header('location: userdashboard.php');
     }
-	echo $orderid;
+	
 
 ?>
 <!DOCTYPE html>
@@ -192,7 +192,7 @@ if(isset($_SESSION['sessionvariable'])){
 </html>
 <?php
 	}
-	/*else{
+	else{
 		header('location: index.php');
-	}*/
+	}
 ?>
