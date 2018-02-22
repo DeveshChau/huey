@@ -1,18 +1,32 @@
 $(document).ready(function(){
-	
+
 
 	$('#details-tab a').on('click', function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
 	})
-	
-	$("#pickup-next").on("click", function(e){                
-        $("a[href='#drop']").tab("show");        
-	});	
+
+	$("#pickup-next").on("click", function(e)	{
+		var $tab = $(".tab-pane:visible");
+
+		var valid = true;
+		$('input, select', $tab).each(function(i, v) {
+				$(this).trigger('focusout');
+		});
+
+		valid = $tab.find(".has-error").length == 0 ? true : false;
+
+		if(!valid) {
+			 return;
+		}
+
+    $("a[href='#drop']").tab("show");
+	});
+
 
 	$("#drop-previous").on("click", function(e){
 		$("a[href='#pickup']").tab("show");
-	});	
+	});
 
 	$("#drop-next").on("click", function(e){
 		$("a[href='#profile']").tab("show");
@@ -25,25 +39,25 @@ $(document).ready(function(){
     $("#profile-next").on("click", function(e){
         var usermobile = document.getElementById("usermobile").value;
         //append country code to mobile
-        var mobile = "91".concat(usermobile);       
+        var mobile = "91".concat(usermobile);
         var data = {mobile: mobile, usermobile: usermobile};
-        console.log(usermobile);               
+        console.log(usermobile);
         $.ajax({
             type: "POST",
             dataType:'json',
-            data: data,            
+            data: data,
             url: "http://www.loopor.com/pacemove/code/testsendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#otpModal']").tab("show");
             console.log("returnedData", data);
             },
-            error: function(data) {            
+            error: function(data) {
             window.location = "http://www.loopor.com/pacemove/code/details.php";
-            console.log("error", data);         
-            } 
+            console.log("error", data);
+            }
         });
-    }); 
+    });
 
     $("#btn-otp-submit").on("click", function(e){
         var usermobile = document.getElementById("usermobile").value;
@@ -56,18 +70,18 @@ $(document).ready(function(){
         var dropfloor = document.getElementById("dropfloor").value;
         var droplift = document.getElementById("droplift").value;
         var pickupdate = document.getElementById("datepicker").value;
-        //append country code to mobile        
-        var mobile = "91".concat(usermobile);           
+        //append country code to mobile
+        var mobile = "91".concat(usermobile);
         var otp = document.getElementById("otp").value;
         console.log(mobile,username,useremail,pickupLocationApartment,pickupdate,dropLocationApartment);
 
-        var data = {mobile: mobile, 
-                    otp: otp, 
-                    usermobile: usermobile, 
-                    username: username, 
-                    useremail: useremail, 
-                    pickupLocationApartment: pickupLocationApartment, 
-                    pickupfloor: pickupfloor, 
+        var data = {mobile: mobile,
+                    otp: otp,
+                    usermobile: usermobile,
+                    username: username,
+                    useremail: useremail,
+                    pickupLocationApartment: pickupLocationApartment,
+                    pickupfloor: pickupfloor,
                     pickuplift: pickuplift,
                     droplift: droplift,
                     dropfloor: dropfloor,
@@ -84,9 +98,9 @@ $(document).ready(function(){
             window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
-            console.log("error", data);         
-            }     
-        });   
+            console.log("error", data);
+            }
+        });
     });
 
     $('#datepicker').datepicker({
@@ -94,26 +108,26 @@ $(document).ready(function(){
         startDate: '+1d'
     });
 
-    $("#trackpickupnext").on("click", function(e){        
-        $("a[href='#drop']").tab("show");        
-    }); 
+    $("#trackpickupnext").on("click", function(e){
+        $("a[href='#drop']").tab("show");
+    });
 
     $("#trackdropprevious").on("click", function(e){
         $("a[href='#pickup']").tab("show");
-    });     
+    });
 
     $('#trackpickupdate').datepicker({
         format: 'mm/dd/yyyy',
         startDate: '+1d'
-        
-    });     
 
-    $("#header-track-next").on("click", function(e){        
+    });
+
+    $("#header-track-next").on("click", function(e){
         var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
-        var mobile = "91".concat(usermobile);       
+        var mobile = "91".concat(usermobile);
         var data = {mobile: mobile, usermobile: usermobile};
-        console.log(usermobile);               
+        console.log(usermobile);
         $.ajax({
             type: "POST",
             dataType:'json',
@@ -127,32 +141,32 @@ $(document).ready(function(){
             },
             error: function(data) {
             window.location = "http://www.loopor.com/pacemove/code/details.php";
-            console.log("error", data);         
-            } 
+            console.log("error", data);
+            }
         });
-    });  
-    
-    $("#header-track-otp-submit").on("click", function(e){     
-        var usermobile = document.getElementById("header-track-user-mobile").value;             
+    });
+
+    $("#header-track-otp-submit").on("click", function(e){
+        var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
-        var mobile = "91".concat(usermobile);           
+        var mobile = "91".concat(usermobile);
         var otp = document.getElementById("header-track-otp").value;
-        var data = {mobile: mobile, otp: otp, usermobile: usermobile}; 
-        console.log(usermobile);       
+        var data = {mobile: mobile, otp: otp, usermobile: usermobile};
+        console.log(usermobile);
         $.ajax({
             type: "POST",
-            dataType:'json',            
+            dataType:'json',
             url: "http://www.loopor.com/pacemove/code/trackverifyotp.php",
             data: data,
             success: function(data) {
-                                    
+
              window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
 console.log("returnedData", data);
             },
             error: function(data) {
-            console.log("error", data);         
-            }     
-        });     
+            console.log("error", data);
+            }
+        });
     });
 
     $("#trackdropnext").on("click", function(e){
@@ -163,10 +177,10 @@ console.log("returnedData", data);
         var dropLocationApartment = document.getElementById("trackdropLocationApartment").value;
         var dropfloor = document.getElementById("trackdropfloor").value;
         var droplift = document.getElementById("trackdroplift").value;
-        var pickupdate = document.getElementById("trackpickupdate").value;       
-        //append country code to mobile                   
-        var data = {pickupLocationApartment: pickupLocationApartment, 
-                    pickupfloor: pickupfloor, 
+        var pickupdate = document.getElementById("trackpickupdate").value;
+        //append country code to mobile
+        var data = {pickupLocationApartment: pickupLocationApartment,
+                    pickupfloor: pickupfloor,
                     pickuplift: pickuplift,
                     droplift: droplift,
                     dropfloor: dropfloor,
@@ -174,32 +188,32 @@ console.log("returnedData", data);
                     pickupdate: pickupdate};
         $.ajax({
             type: "POST",
-            dataType:'json',            
+            dataType:'json',
             url: "http://www.loopor.com/pacemove/code/trackinsertorder.php",
             data: data,
             success: function(data) {
-            console.log("success", data);                            
+            console.log("success", data);
             window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
-            console.log("error", data);         
-            }     
+            console.log("error", data);
+            }
         });
     });
 
-	$("#retry-otp").on("click", function(e){		
+	$("#retry-otp").on("click", function(e){
 		var usermobile = document.getElementById("usermobile").value;
 		//append country code to mobile
-		var mobile = "91".concat(usermobile);		
-		var data = {mobile: mobile};        
+		var mobile = "91".concat(usermobile);
+		var data = {mobile: mobile};
         $.ajax({
             type: "POST",
-            dataType:'json',            
+            dataType:'json',
             url: "http://www.loopor.com/pacemove/code/retryotp.php",
             data: data,
             success: function(data) {
             console.log("returnedData", data);
           	}
         });
-	});		
+	});
 });

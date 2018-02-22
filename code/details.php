@@ -14,7 +14,7 @@ session_start();
 		<link rel="stylesheet" href="./css/style.css">
   	</head>
   	<body class="child-page">
-  	
+
 	<?php
 		include 'header.php';
 	?>
@@ -33,7 +33,7 @@ session_start();
 						  <li class="nav-item">
 						    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
 						  </li>
-						  
+
 						  <li class="nav-item">
 						    <a class="nav-link" href="#profile" data-toggle="tab">Profile</a>
 						  </li>
@@ -42,44 +42,47 @@ session_start();
 
 				  	<div class="card-body">
 						<div class="tab-content" id="bookingTabContent">
-					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">						
+					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
 								<form data-toggle="validator" role="form" id="pickupform">
 								  <div class="form-group">
 									<label for="pickupdate">Date</label>
 										<div class="input-group date">
-									<input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY" required>
-									<div class="help-block with-errors"></div>
+						            <input type="text" class="form-control" id="datepicker" placeholder="MM/DD/YYYY" required>
 										</div>
-								  </div>
-								  <div class="form-group">
-									<label for="pickupLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="pickupLocationApartment" placeholder="Enter your Location / Apartment" required>
+                    <div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
-									<label for="pickupfloor">Floor</label>
-									<select class="form-control" id="pickupfloor">
-									  <option value="1">1</option>
-									  <option value="2">2</option>
-									  <option value="3">3</option>
-									  <option value="4">4</option>
-									  <option value="5">5</option>
-									</select>
+  									<label for="pickupLocationApartment">Location / Apartment</label>
+  									<input type="text" class="form-control" id="pickupLocationApartment" placeholder="Enter your Location / Apartment" required>
+                    <div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
-									<label for="pickuplift">Lift available for moving</label>
-									<select class="form-control" id="pickuplift">
-									  <option value="Yes">Yes</option>
-									  <option value="No">No</option>
-									</select>
+  									<label for="pickupfloor">Floor</label>
+  									<select class="form-control" id="pickupfloor">
+  									  <option value="1">1</option>
+  									  <option value="2">2</option>
+  									  <option value="3">3</option>
+  									  <option value="4">4</option>
+  									  <option value="5">5</option>
+  									</select>
+                    <div class="help-block with-errors"></div>
+								  </div>
+
+								  <div class="form-group">
+  									<label for="pickuplift">Lift available for moving</label>
+  									<select class="form-control" id="pickuplift">
+  									  <option value="Yes">Yes</option>
+  									  <option value="No">No</option>
+  									</select>
 								  </div>
 
 								  <br>
 
 								  <div class="form-group" style="text-align: center;">
 									<button type="button" class="btn btn-primary  btn-lg " id="pickup-next">Next</button>
-								  </div>	
+								  </div>
 
 								</form>
 
@@ -89,65 +92,67 @@ session_start();
 								<form data-toggle="validator">
 
 								  <div class="form-group">
-									<label for="dropLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="dropLocationApartment" placeholder="Enter your Location / Apartment" required>
+					           <label for="dropLocationApartment">Location / Apartment</label>
+  									 <input type="text" class="form-control" id="dropLocationApartment" placeholder="Enter your Location / Apartment" required>
 								  </div>
 
 								  <div class="form-group">
-									<label for="dropfloor">Floor</label>
-									<select class="form-control" id="dropfloor">
-									  <option value="1">1</option>
-									  <option value="2">2</option>
-									  <option value="3">3</option>
-									  <option value="4">4</option>
-									  <option value="5">5</option>
-									</select>
+  									<label for="dropfloor">Floor</label>
+  									<select class="form-control" id="dropfloor">
+  									  <option value="1">1</option>
+  									  <option value="2">2</option>
+  									  <option value="3">3</option>
+  									  <option value="4">4</option>
+  									  <option value="5">5</option>
+  									</select>
 								  </div>
 
 								  <div class="form-group">
-									<label for="droplift">Lift available for moving</label>
-									<select class="form-control" id="droplift">
-									  <option value="Yes">Yes</option>
-									  <option value="No">No</option>
-									</select>
-								  </div>
-
-								  <br>								
-								  <div class="form-group" style="text-align: center;">
-									<button type="button" class="btn btn-primary  btn-lg " id="drop-previous">Previous</button>
-									
-									<button type="button" class="btn btn-primary  btn-lg " id="drop-next">Next</button>
-										
-								  </div>	
-																	  
-								</form>
-					 		</div>
-					  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							  	<form id="profileinfo" name="profileinfo" data-toggle="validator">
-
-								  <div class="form-group">
-									<label for="username">Name</label>
-									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required>
-								  </div>
-
-								  <div class="form-group">
-									<label for="useremail">Email</label>
-									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email">
-									<div class="help-block with-errors"></div>
-								  </div>
-
-								  <div class="form-group">
-									<label for="usermobile">Mobile</label>							
-									<input type="number" name="" id="usermobile" class="form-control" required>
-									<div class="help-block with-errors"></div>
+  									<label for="droplift">Lift available for moving</label>
+  									<select class="form-control" id="droplift">
+  									  <option value="Yes">Yes</option>
+  									  <option value="No">No</option>
+  									</select>
 								  </div>
 
 								  <br>
 
 								  <div class="form-group" style="text-align: center;">
-								  	<button type="button" class="btn btn-primary  btn-lg " id="profile-previous">Previous</button>
-									<button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal" data-target="#otpModal">Next</button>
-								  </div>	
+									<button type="button" class="btn btn-primary  btn-lg " id="drop-previous">Previous</button>
+
+									<button type="button" class="btn btn-primary  btn-lg " id="drop-next">Next</button>
+
+								  </div>
+
+								</form>
+					 		</div>
+
+					  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							  	<form id="profileinfo" name="profileinfo" data-toggle="validator">
+
+								  <div class="form-group">
+  									<label for="username">Name</label>
+  									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required>
+								  </div>
+
+								  <div class="form-group">
+  									<label for="useremail">Email</label>
+  									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email">
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <div class="form-group">
+  									<label for="usermobile">Mobile</label>
+  									<input type="number" name="" id="usermobile" class="form-control" required>
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <br>
+
+								  <div class="form-group" style="text-align: center;">
+								  	 <button type="button" class="btn btn-primary  btn-lg " id="profile-previous">Previous</button>
+					           <button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal" data-target="#otpModal">Next</button>
+								  </div>
 
 								</form>
 					  		</div>
@@ -171,15 +176,15 @@ session_start();
 	    <div class="modal-content">
 	      <div class="modal-body">
 	        <div class="form-group">
-				<label for="otp">Enter OTP</label>
-				<input type="text" class="form-control" id="otp" placeholder="Enter 4 Digit OTP">
-			</div>	        
+    				<label for="otp">Enter OTP</label>
+    				<input type="text" class="form-control" id="otp" placeholder="Enter 4 Digit OTP">
+    			</div>
 
-			<div class="form-group">
-				<button type="button" class="btn btn-primary" id="btn-otp-submit">Submit</button>
-				<a class="float-right" id="retry-otp" href="#">Resend OTP</a>
-			</div>
-			
+    			<div class="form-group">
+    				<button type="button" class="btn btn-primary" id="btn-otp-submit">Submit</button>
+    				<a class="float-right" id="retry-otp" href="#">Resend OTP</a>
+    			</div>
+
 	      </div>
 	    </div>
 	  </div>
@@ -191,7 +196,7 @@ session_start();
         var autoComplete1 = new google.maps.places.Autocomplete(input1);
         var input2 = document.getElementById('dropLocationApartment');
        	var autoComplete2 = new google.maps.places.Autocomplete(input2);
-      }         
+      }
    </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
