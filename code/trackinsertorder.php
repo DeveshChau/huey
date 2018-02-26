@@ -10,8 +10,8 @@
 	$droplift = $_POST['droplift'];	
 	$pickupdate = date("Y-m-d", strtotime($_POST['pickupdate']));
 	$servername = "localhost";
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
