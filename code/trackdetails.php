@@ -47,13 +47,15 @@ if(isset($_SESSION['sessionvariable'])){
 								  	<div class="form-group">
 										<label for="trackpickupdate">Date</label>
 									  	<div class="input-group date">
-											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY">
+											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY" required>
+											<div class="help-block with-errors"></div>
 										</div>
 								  	</div>
 
 								  	<div class="form-group">
 										<label for="trackpickupLocationApartment">Location / Apartment</label>
 										<input type="text" class="form-control" id="trackpickupLocationApartment" placeholder="Enter your Location / Apartment" required>
+										<div class="help-block with-errors"></div>
 								  	</div>
 
 								  	<div class="form-group">
@@ -85,11 +87,12 @@ if(isset($_SESSION['sessionvariable'])){
 					  		</div>
 
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
-								<form>
+								<form data-toggle="validator" role="form">
 
 								  <div class="form-group">
 									<label for="trackdropLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment">
+									<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment" required>
+									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">

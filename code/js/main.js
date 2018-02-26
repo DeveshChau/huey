@@ -135,6 +135,18 @@ $(document).ready(function(){
     });
 
     $("#trackpickupnext").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         $("a[href='#drop']").tab("show");
     });
 
@@ -196,7 +208,18 @@ console.log("returnedData", data);
     });
 
     $("#trackdropnext").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
 
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var pickupLocationApartment = document.getElementById("trackpickupLocationApartment").value;
         var pickupfloor = document.getElementById("trackpickupfloor").value;
         var pickuplift = document.getElementById("trackpickuplift").value;
