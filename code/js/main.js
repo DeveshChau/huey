@@ -29,6 +29,18 @@ $(document).ready(function(){
 	});
 
 	$("#drop-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
 		$("a[href='#profile']").tab("show");
 	});
 
@@ -37,6 +49,19 @@ $(document).ready(function(){
     });
 
     $("#profile-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
+        $('#otpModal').modal('show');
         var usermobile = document.getElementById("usermobile").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);

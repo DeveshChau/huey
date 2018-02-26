@@ -89,11 +89,12 @@ session_start();
 					  		</div>
 
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
-								<form data-toggle="validator">
+								<form data-toggle="validator" role="form">
 
 								  <div class="form-group">
 					           <label for="dropLocationApartment">Location / Apartment</label>
   									 <input type="text" class="form-control" id="dropLocationApartment" placeholder="Enter your Location / Apartment" required>
+  									 <div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
@@ -105,6 +106,7 @@ session_start();
   									  <option value="4">4</option>
   									  <option value="5">5</option>
   									</select>
+  									
 								  </div>
 
 								  <div class="form-group">
@@ -113,6 +115,7 @@ session_start();
   									  <option value="Yes">Yes</option>
   									  <option value="No">No</option>
   									</select>
+
 								  </div>
 
 								  <br>
@@ -128,11 +131,12 @@ session_start();
 					 		</div>
 
 					  		<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-							  	<form id="profileinfo" name="profileinfo" data-toggle="validator">
+							  	<form id="profileinfo" name="profileinfo" data-toggle="validator" role="form">
 
 								  <div class="form-group">
   									<label for="username">Name</label>
   									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required>
+  									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
@@ -151,7 +155,7 @@ session_start();
 
 								  <div class="form-group" style="text-align: center;">
 								  	 <button type="button" class="btn btn-primary  btn-lg " id="profile-previous">Previous</button>
-					           <button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal" data-target="#otpModal">Next</button>
+					           <button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal">Next</button>
 								  </div>
 
 								</form>
