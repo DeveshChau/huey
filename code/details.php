@@ -147,7 +147,7 @@ session_start();
 
 								  <div class="form-group">
   									<label for="usermobile">Mobile</label>
-  									<input type="number" name="" id="usermobile" class="form-control" required>
+  									<input type="number" name="" id="usermobile" min="10" class="form-control" required>
   									<div class="help-block with-errors"></div>
 								  </div>
 
