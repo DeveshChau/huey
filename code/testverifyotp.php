@@ -48,10 +48,15 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
+<<<<<<< HEAD
+=======
+
+>>>>>>> beta
 
 if ($err) {
 	echo json_encode("cURL Error #:" . $err);
 } 
+
 else {
 */
 
