@@ -26,16 +26,16 @@ session_start();
 			<div class="col-md-8">
 				<div class="card" id="inquiry-form">
 				  	<div class="card-header" >
-						<ul class="nav nav-pills nav-fill" role="tablist" id="details-tab">
+						<ul class="nav nav-pills nav-fill" role="tablist">
 						  <li class="nav-item active">
-						    <a class="nav-link active" href="#pickup" data-toggle="tab">Pickup</a>
+						    <a class="nav-link active" href="#pickup">Pickup</a>
 						  </li>
 						  <li class="nav-item">
-						    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
+						    <a class="nav-link" href="#drop">Drop</a>
 						  </li>
 
 						  <li class="nav-item">
-						    <a class="nav-link" href="#profile" data-toggle="tab">Profile</a>
+						    <a class="nav-link" href="#profile" >Profile</a>
 						  </li>
 						</ul>
 				  	</div>
@@ -135,19 +135,19 @@ session_start();
 
 								  <div class="form-group">
   									<label for="username">Name</label>
-  									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required>
+  									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required >
   									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
   									<label for="useremail">Email</label>
-  									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email">
+  									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email" required>
   									<div class="help-block with-errors"></div>
 								  </div>
 
 								  <div class="form-group">
   									<label for="usermobile">Mobile</label>
-  									<input type="number" name="" id="usermobile" min="10" class="form-control" required>
+  									<input type="tel" id="usermobile" pattern="^\d{10}$" class="form-control" placeholder="Enter your Mobile" required>
   									<div class="help-block with-errors"></div>
 								  </div>
 
@@ -155,7 +155,7 @@ session_start();
 
 								  <div class="form-group" style="text-align: center;">
 								  	 <button type="button" class="btn btn-primary  btn-lg " id="profile-previous">Previous</button>
-					           <button type="button" class="btn btn-primary  btn-lg " id="profile-next"  data-toggle="modal">Next</button>
+					           <button type="button" class="btn btn-primary  btn-lg " id="profile-next">Next</button>
 								  </div>
 
 								</form>

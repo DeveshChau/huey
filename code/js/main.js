@@ -52,13 +52,14 @@ $(document).ready(function(){
         var $tab = $(".tab-pane:visible");
 
         var valid = true;
-        $('input, select', $tab).each(function(i, v) {
+        $('input', $tab).each(function(i, v) {
                 $(this).trigger('focusout');
         });
 
         valid = $tab.find(".has-error").length == 0 ? true : false;
 
         if(!valid) {
+            alert ("Hello");
              return;
         }
         $('#otpModal').modal('show');
@@ -71,14 +72,14 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
             data: data,
-            url: "http://www.loopor.com/pacemove/code/testsendotp.php",
+            url: "http://localhost/huey/code/testsendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#otpModal']").tab("show");
             console.log("returnedData", data);
             },
             error: function(data) {
-            window.location = "http://www.loopor.com/pacemove/code/details.php";
+            window.location = "http://localhost/huey/code/details.php";
             console.log("error", data);
             }
         });
@@ -116,11 +117,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/testverifyotp.php",
+            url: "http://localhost/huey/code/testverifyotp.php",
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            window.location = "http://localhost/huey/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);
@@ -130,7 +131,7 @@ $(document).ready(function(){
 
     $('#datepicker').datepicker({
         format: 'mm/dd/yyyy',
-        startDate: '+1d'
+        startDate: '+0d'
     });
 
     $("#trackpickupnext").on("click", function(e){
@@ -143,7 +144,7 @@ $(document).ready(function(){
 
     $('#trackpickupdate').datepicker({
         format: 'mm/dd/yyyy',
-        startDate: '+1d'
+        startDate: '+0d'
 
     });
 
@@ -158,14 +159,14 @@ $(document).ready(function(){
             dataType:'json',
             data: {usermobile: usermobile},
             /*url: "http://localhost/huey/code/testsendotp.php", */
-            url: "http://www.loopor.com/pacemove/code/testsendotp.php",
+            url: "http://localhost/huey/code/testsendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#track-otp-modal']").tab("show");
             console.log("returnedData", data);
             },
             error: function(data) {
-            window.location = "http://www.loopor.com/pacemove/code/details.php";
+            window.location = "http://localhost/huey/code/details.php";
             console.log("error", data);
             }
         });
@@ -181,11 +182,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/trackverifyotp.php",
+            url: "http://localhost/huey/code/trackverifyotp.php",
             data: data,
             success: function(data) {
 
-             window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
+             window.location = "http://localhost/huey/code/userdashboard.php";
 console.log("returnedData", data);
             },
             error: function(data) {
@@ -214,11 +215,11 @@ console.log("returnedData", data);
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/trackinsertorder.php",
+            url: "http://localhost/huey/code/trackinsertorder.php",
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            window.location = "http://localhost/huey/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);
@@ -234,7 +235,7 @@ console.log("returnedData", data);
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/retryotp.php",
+            url: "http://localhost/huey/code/retryotp.php",
             data: data,
             success: function(data) {
             console.log("returnedData", data);
