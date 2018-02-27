@@ -22,13 +22,13 @@
 	$userid = $row["pmuserid"];	
 	}
 	
-	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist != 'Drop' ORDER BY pmorders.pmorderdate  ASC";
+	$order = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist != 'Order Delivered' ORDER BY pmorders.pmorderdate  ASC";
 	$orderresult = mysqli_query($link, $order);
 	while($arr = mysqli_fetch_assoc($orderresult)) {
     $row[] = $arr;
 }
 
-	$previousorder = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist = 'Drop' ORDER BY pmorders.pmorderdate  desc";
+	$previousorder = "SELECT * FROM pmorders LEFT outer join pmusers on pmorders.pmuserid = pmusers.pmuserid WHERE pmorders.statuslist = 'Order Delivered' ORDER BY pmorders.pmorderdate  desc";
 	$previousorderresult = mysqli_query($link, $previousorder);
 	while($arr = mysqli_fetch_assoc($previousorderresult)) {
     $row2[] = $arr;
@@ -140,11 +140,10 @@
 											<?php 
 												$orderid = $value['pmorderid'];
 											?>
-										    <select name="statuslist" id="statuslist<?php echo $orderid ?>">				    	
-												<option value="Booked"> Booked</option>
-												<option value="Pickup"> Pick up</option>
-												<option value="Moving"> Moving</option>
-												<option value="Drop"> Drop</option>
+										    <select name="statuslist" id="statuslist<?php echo $orderid ?>">			<option value="Move Booked"> Move Booked</option>
+												<option value="Order Picked Up"> Order Picked Up</option>
+												<option value="In Transit (Place)"> In Transit (Place)</option>
+												<option value="Order Delivered"> Order Delivered</option>
 											</select>
 											<button type="submit" id="statusUpdate" onclick="updateStatus('<?php echo $orderid ?>')">Update</button>
 							 			</div>
@@ -214,11 +213,10 @@
 											<?php 
 												$orderid = $value['pmorderid'];
 											?>
-										    <select name="statuslist" id="statuslist<?php echo $orderid ?>">				    	
-												<option value="Booked"> Booked</option>
-												<option value="Pickup"> Pick up</option>
-												<option value="Moving"> Moving</option>
-												<option value="Drop"> Drop</option>
+										    <select name="statuslist" id="statuslist<?php echo $orderid ?>">			<option value="Move Booked"> Move Booked</option>
+												<option value="Order Picked Up"> Order Picked Up</option>
+												<option value="In Transit (Place)"> In Transit (Place)</option>
+												<option value="Order Delivered"> Order Delivered</option>
 											</select>
 											<button type="submit" id="statusUpdate" onclick="updateStatus('<?php echo $orderid ?>')">Update</button>
 							 			</div>

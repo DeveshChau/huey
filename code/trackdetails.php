@@ -1,6 +1,19 @@
 <?php
 session_start();
 if(isset($_SESSION['sessionvariable'])){
+	$servername = "localhost";
+	$username = "root";
+	$password = "root";
+	$dbname = "pm_huey";
+	// Create connection
+	$link = mysqli_connect($servername, $username, $password, $dbname);
+
+	if($link === false){
+	    die("ERROR: Could not connect. " . mysqli_connect_error());
+	}
+	$usermobile = $_SESSION["usermobile"];
+	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
+	$useridsearchresult = mysqli_query($link, $useridsearch);		  	
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -28,19 +41,58 @@ if(isset($_SESSION['sessionvariable'])){
 			<div class="col-md-8">
 				<div class="card" id="inquiry-form">
 				  	<div class="card-header" >
-						<ul class="nav nav-pills nav-fill" role="tablist">
+						<ul class="nav nav-pills nav-fill" role="tablist">							
+						   <?php
+								if(mysqli_num_rows($useridsearchresult)==NULL){ ?>
 						  <li class="nav-item active">
-						    <a class="nav-link active" href="#pickup">Pickup</a>
+						    <a class="nav-link active" href="#profile" >Profile</a>						    
+						  </li>
+						  <?php } ?>						  
+						  <li class="nav-item <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'active';}?>">
+						    <a class="nav-link <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'active';}?>" href="#trackpickup">Pickup</a>
 						  </li>
 						  <li class="nav-item">
 						    <a class="nav-link" href="#drop">Drop</a>
-						  </li>						  
+						  </li>
 						</ul>
 				  	</div>
 
 				  	<div class="card-body">
-						<div class="tab-content" id="bookingTabContent">
-					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+						<div class="tab-content" id="bookingTabContent">							
+
+							<div class="tab-pane fade <?php
+								if(mysqli_num_rows($useridsearchresult)==NULL){
+								 echo 'show active';}?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							  	<form data-toggle="validator" role="form">
+
+								  <div class="form-group">
+  									<label for="username">Name</label>
+  									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required >
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <div class="form-group">
+  									<label for="useremail">Email</label>
+  									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email" required>
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <br>
+
+								  <div class="form-group" style="text-align: center;">							  	 
+					           		<button type="button" class="btn btn-primary  btn-lg " id="track-profile-next">Next</button>
+								  </div>
+
+								</form>
+					  		</div>
+								
+					  		<div class="tab-pane fade <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'show active';}?> " id="trackpickup" role="tabpanel" aria-labelledby="trackpickup-tab">
 						
 								<form data-toggle="validator" role="form">
 
@@ -90,41 +142,42 @@ if(isset($_SESSION['sessionvariable'])){
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
 								<form data-toggle="validator" role="form">
 
-								  <div class="form-group">
-									<label for="trackdropLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment" required>
-									<div class="help-block with-errors"></div>
-								  </div>
+									  <div class="form-group">
+										<label for="trackdropLocationApartment">Location / Apartment</label>
+										<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment" required>
+										<div class="help-block with-errors"></div>
+									  </div>
 
-								  <div class="form-group">
-									<label for="trackdropfloor">Floor</label>
-									<select class="form-control" id="trackdropfloor">
-									  <option value="1">1</option>
-									  <option value="2">2</option>
-									  <option value="3">3</option>
-									  <option value="4">4</option>
-									  <option value="5">5</option>
-									</select>
-								  </div>
+									  <div class="form-group">
+										<label for="trackdropfloor">Floor</label>
+										<select class="form-control" id="trackdropfloor">
+										  <option value="1">1</option>
+										  <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+										  <option value="5">5</option>
+										</select>
+									  </div>
 
-								  <div class="form-group">
-									<label for="trackdroplift">Lift available for moving</label>
-									<select class="form-control" id="trackdroplift">
-									  <option value="Yes">Yes</option>
-									  <option value="No">No</option>
-									</select>
-								  </div>
+									  <div class="form-group">
+										<label for="trackdroplift">Lift available for moving</label>
+										<select class="form-control" id="trackdroplift">
+										  <option value="Yes">Yes</option>
+										  <option value="No">No</option>
+										</select>
+									  </div>
 
 								  <br>								
-								  <div class="form-group" style="text-align: center;">
-									<button type="button" class="btn btn-primary  btn-lg " id="trackdropprevious">Previous</button>
+								  	 <div class="form-group" style="text-align: center;">
+										<button type="button" class="btn btn-primary  btn-lg " id="trackdropprevious">Previous</button>
 																		
-									<button type="button" class="btn btn-primary  btn-lg" id="trackdropnext">Next</a>									
-								  </div>	
+										<button type="button" class="btn btn-primary  btn-lg" id="trackdropnext">Next</a>									
+								  	 </div>	
 																	  
 								</form>
 
-					 		</div>					  		
+					 		</div>
+					 							 						  	
 				  	</div>
 
 				</div>

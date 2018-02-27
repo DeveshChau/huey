@@ -145,6 +145,42 @@ $(document).ready(function(){
         startDate: '+0d'
     });
 
+    $("#track-profile-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
+        var username = document.getElementById("username").value;
+        var useremail = document.getElementById("useremail").value;
+        var data = {
+                    username: username,
+                    useremail: useremail
+                    };
+        //console.log(pickuplift,pickupfloor,pickupLocationApartment);
+        $.ajax({
+            type: "POST",
+            dataType:'json',
+            url: "http://localhost/huey/code/trackinsertuser.php",
+            data: data,
+            success: function(data) {
+            console.log("success", data);
+            $("a[href='#trackpickup']").tab("show");
+            },
+            error: function(data) {
+            console.log("error", data);
+            }
+        });
+        
+    });
+
     $("#trackpickupnext").on("click", function(e){
         var $tab = $(".tab-pane:visible");
 
@@ -233,8 +269,8 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
 
-             window.location = "http://localhost/huey/code/userdashboard.php";
-console.log("returnedData", data);
+            window.location = "http://localhost/huey/code/userdashboard.php";
+            console.log("returnedData", data);
             },
             error: function(data) {
             console.log("error", data);
