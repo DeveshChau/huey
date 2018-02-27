@@ -172,6 +172,18 @@ $(document).ready(function(){
     });
 
     $("#header-track-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
@@ -196,6 +208,18 @@ $(document).ready(function(){
     });
 
     $("#header-track-otp-submit").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
