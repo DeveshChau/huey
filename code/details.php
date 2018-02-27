@@ -179,16 +179,18 @@ session_start();
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body">
+	      	<form role="form" data-toggle="validator">
 	        <div class="form-group">
     				<label for="otp">Enter OTP</label>
-    				<input type="text" class="form-control" id="otp" placeholder="Enter 4 Digit OTP">
+    				<input type="tel" pattern="^\d{4}$"  class="form-control" id="otp" placeholder="Enter 4 Digit OTP" required="">
+    				<div class="help-block with-errors"></div>
     			</div>
 
     			<div class="form-group">
     				<button type="button" class="btn btn-primary" id="btn-otp-submit">Submit</button>
     				<a class="float-right" id="retry-otp" href="#">Resend OTP</a>
     			</div>
-
+			</form>
 	      </div>
 	    </div>
 	  </div>

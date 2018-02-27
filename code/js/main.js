@@ -59,7 +59,6 @@ $(document).ready(function(){
         valid = $tab.find(".has-error").length == 0 ? true : false;
 
         if(!valid) {
-            alert ("Hello");
              return;
         }
         $('#otpModal').modal('show');
@@ -86,6 +85,18 @@ $(document).ready(function(){
     });
 
     $("#btn-otp-submit").on("click", function(e){
+        var $tab = $(".modal:visible");
+
+        var valid = true;
+        $('input', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("usermobile").value;
         var username = document.getElementById("username").value;
         var useremail = document.getElementById("useremail").value;
