@@ -63,9 +63,10 @@ $(document).ready(function(){
         }
         $('#otpModal').modal('show');
         var usermobile = document.getElementById("usermobile").value;
+        var username = document.getElementById("username").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
-        var data = {mobile: mobile, usermobile: usermobile};
+        var data = {mobile: mobile, usermobile: usermobile, username: username};
         console.log(usermobile);
         $.ajax({
             type: "POST",
@@ -198,7 +199,7 @@ $(document).ready(function(){
     });
 
     $("#trackdropprevious").on("click", function(e){
-        $("a[href='#pickup']").tab("show");
+        $("a[href='#trackpickup']").tab("show");
     });
 
     $('#trackpickupdate').datepicker({
@@ -216,7 +217,7 @@ $(document).ready(function(){
         });
 
         valid = $tab.find(".has-error").length == 0 ? true : false;
-
+        console.log(valid);
         if(!valid) {
              return;
         }
@@ -230,7 +231,7 @@ $(document).ready(function(){
             dataType:'json',
             data: {usermobile: usermobile},
             /*url: "http://localhost/huey/code/testsendotp.php", */
-            url: "http://localhost/huey/code/testsendotp.php",
+            url: "http://localhost/huey/code/tracksendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#track-otp-modal']").tab("show");

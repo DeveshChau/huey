@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(!isset($_SESSION['sessionvariable'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -15,9 +16,15 @@ session_start();
   	</head>
   	<body class="child-page">
 
-	<?php
-		include 'header.php';
-	?>
+	<header>
+  	<div class="navbar navbar-light  box-shadow" id="main-header">
+		<div class="container">
+		  <a href="#" class="navbar-brand d-flex align-items-center">
+			<img id="logo" src="./img/logo.png">
+		  </a>
+		</div>
+	</div>
+
 	<main role="main" >
 		<br><br>
 	<div class="container">
@@ -147,7 +154,7 @@ session_start();
 
 								  <div class="form-group">
   									<label for="usermobile">Mobile</label>
-  									<input type="tel" id="usermobile" pattern="^\d{10}$" class="form-control" placeholder="Enter your Mobile" required>
+  									<input type="tel" id="usermobile" pattern="^[789]\d{9}$"^ class="form-control" placeholder="Enter your Mobile" required>
   									<div class="help-block with-errors"></div>
 								  </div>
 
@@ -207,3 +214,8 @@ session_start();
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
 </html>
+<?php
+}else {
+	header('location: trackdetails.php');
+}
+?>

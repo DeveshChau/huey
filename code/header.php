@@ -23,12 +23,12 @@
 				  <div class="modal-dialog" role="document">
 				    	<div class="modal-content">
 				      		<div class="modal-body">
-								<ul class="nav nav-pills nav-fill" role="tablist" id="tack-tab">
+								<ul class="nav nav-pills nav-fill" role="tablist">
 						  			<li class="nav-item active" hidden>
-						    			<a class="nav-link" href="#track-mobile-modal" data-toggle="tab">Pickup</a>
+						    			<a class="nav-link" href="#track-mobile-modal" >Pickup</a>
 						  			</li>
 						  			<li class="nav-item" hidden>
-						    			<a class="nav-link" href="#track-otp-modal" data-toggle="tab">Drop</a>
+						    			<a class="nav-link" href="#track-otp-modal">Drop</a>
 						  			</li>						  			
 								</ul>
 								<div class="tab-content" id="bookingTabContent">
@@ -36,7 +36,7 @@
 										<form data-toggle="validator" role="form">	
 											<div class="form-group">
 												<label for="header-track-user-mobile">Enter Mobile Number</label>
-												<input type="tel" class="form-control"  pattern="^\d{10}$" id="header-track-user-mobile" placeholder="Enter mobile number">
+												<input type="tel" class="form-control"  pattern="^[789]\d{9}$" id="header-track-user-mobile" placeholder="Enter mobile number">
 											<div class="help-block with-errors"></div>
 											</div>
 										  
