@@ -40,7 +40,13 @@
 	  echo json_encode("cURL Error #:" . $err);
 
 	} else {  */
-	  echo json_encode($servername);
+		if (true) {
+			echo json_encode($servername);
+		}
+		else {
+			$err = 202;
+	  		echo json_encode($err);
+		}
 	/*}*/
 
 ?>

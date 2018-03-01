@@ -61,7 +61,7 @@ $(document).ready(function(){
         if(!valid) {
              return;
         }
-        $('#otpModal').modal('show');
+        /*$('#otpModal').modal('show');*/
         var usermobile = document.getElementById("usermobile").value;
         var username = document.getElementById("username").value;
         //append country code to mobile
@@ -75,8 +75,15 @@ $(document).ready(function(){
             url: "http://localhost/huey/code/testsendotp.php",
             data: data,
             success: function(data) {
-            $("a[href='#otpModal']").tab("show");
-            console.log("returnedData", data);
+                if (data != 'localhost') {
+                    alert('invalid number');
+                    
+                }
+                else {
+                    $('#otpModal').modal('show');
+                    console.log("returnedData", data);        
+                }
+            
             },
             error: function(data) {
             window.location = "http://localhost/huey/code/details.php";
