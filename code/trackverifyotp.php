@@ -1,8 +1,8 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "root";
-$password = "root";
+$username = "huey_pacemove";
+$password = "huey_PM@1";
 $dbname = "pm_huey";
 
 $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -11,11 +11,11 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$usermobile = mysqli_real_escape_string($link,$_POST['usermobile']);
-$mobile = mysqli_real_escape_string($link,$_POST['mobile']);
-$otp = mysqli_real_escape_string($link,$_POST['otp']);
+$usermobile = $_POST['usermobile'];
+$mobile = $_POST['mobile'];
+$otp = $_POST['otp'];
 
-/*
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -45,8 +45,8 @@ if ($err) {
 } 
 
 else {
-*/
 $_SESSION["sessionvariable"] = "set";
 $_SESSION["usermobile"] = $usermobile;
 echo json_encode($usermobile);
+}
 ?>

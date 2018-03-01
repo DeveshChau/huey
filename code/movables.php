@@ -2,8 +2,9 @@
 session_start();
 
 if(isset($_SESSION['sessionvariable'])){	
-	$username = "root";
-	$password = "root";
+	$servername = "localhost";
+	$username = "huey_pacemove";
+	$password = "huey_PM@1";
 	$dbname = "pm_huey";
 
 	$link = mysqli_connect($servername, $username, $password, $dbname);

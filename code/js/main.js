@@ -72,7 +72,7 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
             data: data,
-            url: "http://localhost/huey/code/testsendotp.php",
+            url: "http://www.loopor.com/pacemove/code/testsendotp.php",
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
@@ -86,7 +86,7 @@ $(document).ready(function(){
             
             },
             error: function(data) {
-            window.location = "http://localhost/huey/code/details.php";
+            window.location = "http://www.loopor.com/pacemove/code/details.php";
             console.log("error", data);
             }
         });
@@ -136,11 +136,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/testverifyotp.php",
+            url: "http://www.loopor.com/pacemove/code/testverifyotp.php",
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://localhost/huey/code/movables.php";
+            window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);
@@ -176,7 +176,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/trackinsertuser.php",
+            url: "http://www.loopor.com/pacemove/code/trackinsertuser.php",
             data: data,
             success: function(data) {
             console.log("success", data);
@@ -236,16 +236,16 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            data: {usermobile: usermobile},
-            /*url: "http://localhost/huey/code/testsendotp.php", */
-            url: "http://localhost/huey/code/tracksendotp.php",
+            data: data,
+            /*url: "http://www.loopor.com/pacemove/code/testsendotp.php", */
+            url: "http://www.loopor.com/pacemove/code/tracksendotp.php",
             data: data,
             success: function(data) {
             $("a[href='#track-otp-modal']").tab("show");
             console.log("returnedData", data);
             },
             error: function(data) {
-            window.location = "http://localhost/huey/code/details.php";
+            window.location = "http://www.loopor.com/pacemove/code/details.php";
             console.log("error", data);
             }
         });
@@ -273,11 +273,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/trackverifyotp.php",
+            url: "http://www.loopor.com/pacemove/code/trackverifyotp.php",
             data: data,
             success: function(data) {
 
-            window.location = "http://localhost/huey/code/userdashboard.php";
+            window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
             console.log("returnedData", data);
             },
             error: function(data) {
@@ -317,11 +317,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/trackinsertorder.php",
+            url: "http://www.loopor.com/pacemove/code/trackinsertorder.php",
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://localhost/huey/code/movables.php";
+            window.location = "http://www.loopor.com/pacemove/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);
@@ -337,7 +337,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/retryotp.php",
+            url: "http://www.loopor.com/pacemove/code/retryotp.php",
             data: data,
             success: function(data) {
             console.log("returnedData", data);

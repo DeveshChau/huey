@@ -10,8 +10,8 @@
 	$droplift = $_POST['droplift'];	
 	$pickupdate = date("Y-m-d", strtotime($_POST['pickupdate']));
 	$servername = "localhost";
-	$username = "root";
-	$password = "root";
+	$username = "huey_pacemove";
+	$password = "huey_PM@1";
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -28,19 +28,19 @@
 	$row = mysqli_fetch_assoc($useridsearchresult);
 
 	$userid = $row["pmuserid"];
+	$dusername = $row["pmusername"];
 	}
 
 
 	$orders = "INSERT INTO pmorders (pmorderdate, pmorderpickuplocation, pmorderpickupfloor, pmorderpickuplift, pmorderdroplocation, pmorderdropfloor, pmorderdroplift, pmuserid, statuslist) VALUES ('$pickupdate', '$pickupLocationApartment', '$pickupfloor', '$pickuplift', '$dropLocationApartment', '$dropfloor', '$droplift', '$userid', 'Move Booked')";
 	$ordersresult = mysqli_query($link, $orders);
 	
-	/*$curl = curl_init();
+	$curl = curl_init();
 
 	curl_setopt_array($curl, array(
 
-	  CURLOPT_URL => ""	
 
-	  CURLOPT_URL => "http://api.msg91.com/api/sendhttp.php?sender=PCMOVE&route=4&mobiles=".$mobile."&authkey=197006ATdvNQWOL5a79d7ea&message=Dear%20".$dusername.",%0AYour%20Move%20has%20been%20Booked%20with%20reference%20number%20-".$orderid.".%0A We%20 will%20 contact%20 you%20 at%20 the%20 earliest%20.%0A #HappyMoving.%0A PaceMove.",
+	  CURLOPT_URL => "http://api.msg91.com/api/sendhttp.php?sender=PCMOVE&route=4&mobiles=".$usermobile."&authkey=197006ATdvNQWOL5a79d7ea&country=91&message=Dear%20".$dusername."%0AYour%20Move%20has%20been%20Booked.%0A We%20 will%20 contact%20 you%20 at%20 the%20 earliest%20.%0A #HappyMoving.%0A PaceMove.",
 	  CURLOPT_RETURNTRANSFER => true,
 	  CURLOPT_ENCODING => "",
 	  CURLOPT_MAXREDIRS => 10,
@@ -57,11 +57,9 @@
 	curl_close($curl);
 
 	if ($err) {
-	  echo "cURL Error #:" . $err;
+	  echo json_encode("cURL Error #:" . $err);
 	} else {
-	  echo $response;
-	}*/
-
-	echo json_encode($userid);	
+	  echo json_encode($userid);
+	}	
 }
 ?>
