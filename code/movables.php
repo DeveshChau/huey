@@ -2,6 +2,7 @@
 session_start();
 
 if(isset($_SESSION['sessionvariable'])){	
+	$servername = "localhost";
 	$username = "huey_pacemove";
 	$password = "huey_PM@1";
 	$dbname = "pm_huey";

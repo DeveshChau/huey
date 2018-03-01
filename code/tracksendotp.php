@@ -14,7 +14,7 @@
 	$usermobile = $_POST['usermobile'];
 	$otp = rand(1000,9999);
 	$mobile = $_POST['mobile'];
-	$dusername = "User";
+        $dusername = "User";
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
 	$useridsearchresult = mysqli_query($link, $useridsearch);
 	if(mysqli_num_rows($useridsearchresult)!=NULL){

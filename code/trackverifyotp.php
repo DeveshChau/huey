@@ -11,9 +11,9 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$usermobile = mysqli_real_escape_string($link,$_POST['usermobile']);
-$mobile = mysqli_real_escape_string($link,$_POST['mobile']);
-$otp = mysqli_real_escape_string($link,$_POST['otp']);
+$usermobile = $_POST['usermobile'];
+$mobile = $_POST['mobile'];
+$otp = $_POST['otp'];
 
 
 $curl = curl_init();

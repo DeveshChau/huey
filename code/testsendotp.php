@@ -37,7 +37,8 @@
 	curl_close($curl);
 
 	if ($err) {
-	  echo json_encode($err);
+	  echo json_encode("cURL Error #:" . $err);
+
 	} else {  
 	  echo json_encode($servername);
 	}
