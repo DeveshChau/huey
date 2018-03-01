@@ -1,8 +1,8 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "huey_pacemove";
-$password = "huey_PM@1";
+$username = "root";
+$password = "root";
 $dbname = "pm_huey";
 
 $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -25,7 +25,7 @@ $droplift = $_POST['droplift'];
 $pickupdate = date("Y-m-d", strtotime($_POST['pickupdate']));
 
 
-$curl = curl_init();
+/*$curl = curl_init();
 
 curl_setopt_array($curl, array(
 CURLOPT_URL => "https://control.msg91.com/api/verifyRequestOTP.php?authkey=197006ATdvNQWOL5a79d7ea&mobile=".$mobile."&otp=".$otp,
@@ -53,7 +53,7 @@ if ($err) {
 } 
 
 else {
-
+*/
 
 	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
 	$useridsearchresult = mysqli_query($link, $useridsearch);
@@ -74,9 +74,10 @@ else {
 			$userid = $row["pmuserid"];
 
 			$orders = "INSERT INTO pmorders (pmorderdate, pmorderpickuplocation, pmorderpickupfloor, pmorderpickuplift, pmorderdroplocation, pmorderdropfloor, pmorderdroplift, pmuserid, statuslist) VALUES ('$pickupdate', '$pickupLocationApartment', '$pickupfloor', '$pickuplift', '$dropLocationApartment', '$dropfloor', '$droplift', '$userid', 'Move Booked')";
-			$ordersresult = mysqli_query($link, $orders);		
+			$ordersresult = mysqli_query($link, $orders);	
+			echo json_encode($userid); //success echo	
 		}
-		$curl = curl_init();
+		/*$curl = curl_init();
 
 		curl_setopt_array($curl, array(
 
@@ -101,7 +102,7 @@ else {
 		  echo json_encode("cURL Error #:" . $err);
 		} else {
 		  echo json_encode($response);
-		}
+		}*/
 	}
 
 	else {
@@ -118,7 +119,8 @@ else {
 
 		$orders = "INSERT INTO pmorders (pmorderdate, pmorderpickuplocation, pmorderpickupfloor, pmorderpickuplift, pmorderdroplocation, pmorderdropfloor, pmorderdroplift, pmuserid, statuslist) VALUES ('$pickupdate', '$pickupLocationApartment', '$pickupfloor', '$pickuplift', '$dropLocationApartment', '$dropfloor', '$droplift', '$userid', 'Move Booked')";
 		$ordersresult = mysqli_query($link, $orders);
-		$curl = curl_init();
+		echo json_encode($userid); //success echo
+		/*$curl = curl_init();
 
 	curl_setopt_array($curl, array(
 
@@ -143,8 +145,8 @@ else {
 	  echo json_encode("cURL Error #:" . $err);
 	} else {
 	  echo json_encode($response);
+	}*/
 	}
-	}
-}
+/*}*/
 
 ?>

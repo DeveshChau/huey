@@ -1,8 +1,8 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "huey_pacemove";
-$password = "huey_PM@1";
+$username = "root";
+$password = "root";
 $dbname = "pm_huey";
 
 $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -16,7 +16,7 @@ $mobile = $_POST['mobile'];
 $otp = $_POST['otp'];
 
 
-$curl = curl_init();
+/*$curl = curl_init();
 
 curl_setopt_array($curl, array(
 CURLOPT_URL => "https://control.msg91.com/api/verifyRequestOTP.php?authkey=197006ATdvNQWOL5a79d7ea&mobile=".$mobile."&otp=".$otp,
@@ -44,9 +44,9 @@ if ($err) {
 	echo json_encode("cURL Error #:" . $err);
 } 
 
-else {
+else {*/
 $_SESSION["sessionvariable"] = "set";
 $_SESSION["usermobile"] = $usermobile;
 echo json_encode($usermobile);
-}
+/*}*/
 ?>

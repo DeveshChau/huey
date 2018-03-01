@@ -10,8 +10,8 @@
 	$droplift = $_POST['droplift'];	
 	$pickupdate = date("Y-m-d", strtotime($_POST['pickupdate']));
 	$servername = "localhost";
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -35,7 +35,7 @@
 	$orders = "INSERT INTO pmorders (pmorderdate, pmorderpickuplocation, pmorderpickupfloor, pmorderpickuplift, pmorderdroplocation, pmorderdropfloor, pmorderdroplift, pmuserid, statuslist) VALUES ('$pickupdate', '$pickupLocationApartment', '$pickupfloor', '$pickuplift', '$dropLocationApartment', '$dropfloor', '$droplift', '$userid', 'Move Booked')";
 	$ordersresult = mysqli_query($link, $orders);
 	
-	$curl = curl_init();
+	/*$curl = curl_init();
 
 	curl_setopt_array($curl, array(
 
@@ -58,8 +58,8 @@
 
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
-	} else {
+	} else {*/
 	  echo json_encode($userid);
-	}	
+	/*}*/	
 }
 ?>

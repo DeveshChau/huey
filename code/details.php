@@ -182,7 +182,7 @@ if(!isset($_SESSION['sessionvariable'])){
 	</main><!-- /.container -->
 
 	<!-- Modal -->
-	<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true" data-backdrop="static" data-target="otpModal">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body">

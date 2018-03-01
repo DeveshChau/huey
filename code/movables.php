@@ -3,8 +3,8 @@ session_start();
 
 if(isset($_SESSION['sessionvariable'])){	
 	$servername = "localhost";
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 
 	$link = mysqli_connect($servername, $username, $password, $dbname);
