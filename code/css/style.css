@@ -4,7 +4,11 @@
 }
 
 .child-page {
-	background: #E0E0E0;
+	background: url(img/bg4.jpg) no-repeat center center fixed;
+			  	-webkit-background-size: cover;
+			  	-moz-background-size: cover;
+			  	-o-background-size: cover;
+			  	background-size: cover;
 }
 
 #main-header {
