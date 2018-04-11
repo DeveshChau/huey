@@ -62,6 +62,15 @@ if(/*isset($_SESSION['sessionvariable'])*/1){
 		<meta name="author" content="">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="./css/style.css">
+		<style type="text/css">
+			html {
+			  	background: url(img/bg1.jpeg) no-repeat center center fixed;
+			  	-webkit-background-size: cover;
+			  	-moz-background-size: cover;
+			  	-o-background-size: cover;
+			  	background-size: cover;
+			}
+		</style>
 	</head>
 	<body class="child-page">
 	<?php

@@ -13,6 +13,15 @@ if(!isset($_SESSION['sessionvariable'])){
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
 		<link rel="stylesheet" href="./css/style.css">
+		<style type="text/css">
+			html {
+			  	background: url(img/bg1.jpeg) no-repeat center center fixed;
+			  	-webkit-background-size: cover;
+			  	-moz-background-size: cover;
+			  	-o-background-size: cover;
+			  	background-size: cover;
+			}
+		</style>
   	</head>
   	<body class="child-page">
 
