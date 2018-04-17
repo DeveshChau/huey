@@ -15,7 +15,7 @@ if(!isset($_SESSION['sessionvariable'])){
 		<link rel="stylesheet" href="./css/style.css">
 		<style type="text/css">
 			html {
-			  	background: url(img/bg1.jpeg) no-repeat center center fixed;
+			  	background: url(img/bg1.png) no-repeat center center fixed;
 			  	-webkit-background-size: cover;
 			  	-moz-background-size: cover;
 			  	-o-background-size: cover;
