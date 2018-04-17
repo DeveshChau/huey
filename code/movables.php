@@ -1,7 +1,7 @@
 <?php
-/*session_start();*/
+session_start();
 
-if(/*isset($_SESSION['sessionvariable'])*/1){	
+if(isset($_SESSION['sessionvariable'])){	
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
@@ -64,7 +64,7 @@ if(/*isset($_SESSION['sessionvariable'])*/1){
 		<link rel="stylesheet" href="./css/style.css">
 		<style type="text/css">
 			html {
-			  	background: url(img/bg2.png) no-repeat center center fixed;
+			  	background: url(../img/bg1.png) no-repeat center center fixed;
 			  	-webkit-background-size: cover;
 			  	-moz-background-size: cover;
 			  	-o-background-size: cover;
