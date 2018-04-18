@@ -1608,3 +1608,130 @@ Stack trace:
 [20-Feb-2018 07:46:06 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
 [20-Feb-2018 07:46:06 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
 [20-Feb-2018 07:46:06 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[28-Feb-2018 10:25:33 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 10:37:23 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 10:38:19 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 10:55:39 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 11:01:34 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 11:14:03 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 84
+[28-Feb-2018 11:36:52 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 11:37:14 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 11:37:14 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[28-Feb-2018 11:37:14 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[28-Feb-2018 11:37:38 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 43
+[28-Feb-2018 11:37:41 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 43
+[28-Feb-2018 11:41:18 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 43
+[28-Feb-2018 11:45:22 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 44
+[28-Feb-2018 11:45:39 UTC] PHP Parse error:  syntax error, unexpected 'CURLOPT_URL' (T_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 44
+[28-Feb-2018 11:48:44 UTC] PHP Notice:  Undefined variable: mobile in /home/looporinternet/public_html/pacemove/code/trackinsertorder.php on line 42
+[28-Feb-2018 11:48:44 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 12:00:59 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 12:00:59 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[28-Feb-2018 12:00:59 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[28-Feb-2018 13:10:45 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 13:28:37 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 13:28:37 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[28-Feb-2018 13:28:37 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[28-Feb-2018 13:30:43 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 13:30:55 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 13:30:55 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[28-Feb-2018 13:30:55 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[28-Feb-2018 13:31:37 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[28-Feb-2018 13:38:02 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 51
+[28-Feb-2018 13:38:17 UTC] PHP Parse error:  syntax error, unexpected '",' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 30
+[28-Feb-2018 13:40:08 UTC] PHP Parse error:  syntax error, unexpected '",' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 30
+[28-Feb-2018 13:42:53 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[28-Feb-2018 13:43:05 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 51
+[28-Feb-2018 13:45:36 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[28-Feb-2018 13:46:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 51
+[28-Feb-2018 17:59:12 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 18:04:09 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[28-Feb-2018 18:04:09 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[28-Feb-2018 18:04:09 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[01-Mar-2018 03:37:23 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[01-Mar-2018 03:38:04 UTC] PHP Notice:  Undefined variable: servername in /home/looporinternet/public_html/pacemove/code/movables.php on line 9
+[01-Mar-2018 03:38:04 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 41
+[01-Mar-2018 03:38:04 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 44
+[01-Mar-2018 03:38:25 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[01-Mar-2018 10:35:59 UTC] PHP Notice:  Undefined variable: row2 in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[01-Mar-2018 10:35:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[06-Mar-2018 09:46:48 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[06-Mar-2018 09:46:48 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[07-Mar-2018 15:30:54 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[07-Mar-2018 15:30:54 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[07-Mar-2018 15:31:32 UTC] PHP Notice:  Undefined variable: row2 in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[07-Mar-2018 15:31:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[08-Apr-2018 07:27:44 UTC] PHP Notice:  Undefined variable: row2 in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[08-Apr-2018 07:27:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[08-Apr-2018 07:28:29 UTC] PHP Notice:  Undefined variable: row2 in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[08-Apr-2018 07:28:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/looporinternet/public_html/pacemove/code/admindashboard.php on line 176
+[08-Apr-2018 07:29:19 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[08-Apr-2018 07:29:38 UTC] PHP Notice:  Undefined index: usermobile in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 14
+[08-Apr-2018 07:29:38 UTC] PHP Notice:  Undefined index: mobile in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 15
+[08-Apr-2018 07:29:38 UTC] PHP Notice:  Undefined index: otp in /home/looporinternet/public_html/pacemove/code/trackverifyotp.php on line 16
+[08-Apr-2018 07:31:23 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[08-Apr-2018 07:31:23 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[08-Apr-2018 07:35:29 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[08-Apr-2018 07:35:29 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[17-Apr-2018 08:26:40 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[17-Apr-2018 08:28:05 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[17-Apr-2018 08:28:05 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[17-Apr-2018 09:18:30 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[17-Apr-2018 09:18:30 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[17-Apr-2018 09:21:31 UTC] PHP Notice:  Undefined variable: _row in /home/looporinternet/public_html/pacemove/code/tracksendotp.php on line 22
+[17-Apr-2018 09:24:32 UTC] PHP Notice:  Undefined variable: userid in /home/looporinternet/public_html/pacemove/code/userdashboard.php on line 93
+[17-Apr-2018 09:24:32 UTC] PHP Notice:  Undefined variable: userid in /home/looporinternet/public_html/pacemove/code/userdashboard.php on line 159
+[18-Apr-2018 09:27:46 UTC] PHP Warning:  Illegal string offset 'type' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 48
+[18-Apr-2018 09:27:59 UTC] PHP Warning:  Illegal string offset 'type' in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 48
+[18-Apr-2018 09:33:25 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/looporinternet/public_html/pacemove/code/testverifyotp.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 49
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: usermobile in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 14
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: mobile in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 15
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: otp in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 16
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: username in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 17
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: useremail in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 18
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: pickupLocationApartment in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 19
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: pickupfloor in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 20
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: pickuplift in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 21
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: dropLocationApartment in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 22
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: dropfloor in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 23
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: droplift in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 24
+[18-Apr-2018 09:33:26 UTC] PHP Notice:  Undefined index: pickupdate in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 25
+[18-Apr-2018 09:33:27 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/looporinternet/public_html/pacemove/code/testverifyotp.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/looporinternet/public_html/pacemove/code/testverifyotp.php on line 49
+[18-Apr-2018 09:36:50 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/looporinternet/public_html/pacemove/code/testing.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/looporinternet/public_html/pacemove/code/testing.php on line 8
+[18-Apr-2018 09:37:14 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/looporinternet/public_html/pacemove/code/testing.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/looporinternet/public_html/pacemove/code/testing.php on line 8
+[18-Apr-2018 09:39:20 UTC] PHP Warning:  Illegal string offset 'type' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:39:24 UTC] PHP Warning:  Illegal string offset 'type' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:39:33 UTC] PHP Warning:  Illegal string offset 'type' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:39:57 UTC] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in /home/looporinternet/public_html/pacemove/code/testing.php:4
+Stack trace:
+#0 {main}
+  thrown in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:40:27 UTC] PHP Parse error:  syntax error, unexpected ''type'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:41:01 UTC] PHP Parse error:  syntax error, unexpected ''type'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:41:02 UTC] PHP Parse error:  syntax error, unexpected ''type'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:41:19 UTC] PHP Parse error:  syntax error, unexpected ''type'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:41:20 UTC] PHP Parse error:  syntax error, unexpected ''type'' (T_CONSTANT_ENCAPSED_STRING), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/looporinternet/public_html/pacemove/code/testing.php on line 4
+[18-Apr-2018 09:41:38 UTC] PHP Recoverable fatal error:  Object of class stdClass could not be converted to string in /home/looporinternet/public_html/pacemove/code/testing.php on line 5
+[18-Apr-2018 09:41:39 UTC] PHP Recoverable fatal error:  Object of class stdClass could not be converted to string in /home/looporinternet/public_html/pacemove/code/testing.php on line 5
+[18-Apr-2018 11:32:13 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[18-Apr-2018 11:32:13 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[18-Apr-2018 11:48:23 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[18-Apr-2018 11:48:23 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[18-Apr-2018 11:56:06 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[18-Apr-2018 11:56:06 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[18-Apr-2018 11:58:01 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[18-Apr-2018 11:58:01 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45
+[18-Apr-2018 12:00:23 UTC] PHP Notice:  Undefined index: movable[0] in /home/looporinternet/public_html/pacemove/code/movables.php on line 42
+[18-Apr-2018 12:00:23 UTC] PHP Notice:  Undefined variable: items in /home/looporinternet/public_html/pacemove/code/movables.php on line 45

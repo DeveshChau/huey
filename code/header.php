@@ -23,20 +23,21 @@
 				  <div class="modal-dialog" role="document">
 				    	<div class="modal-content">
 				      		<div class="modal-body">
-								<ul class="nav nav-pills nav-fill" role="tablist" id="tack-tab">
+								<ul class="nav nav-pills nav-fill" role="tablist">
 						  			<li class="nav-item active" hidden>
-						    			<a class="nav-link" href="#track-mobile-modal" data-toggle="tab">Pickup</a>
+						    			<a class="nav-link" href="#track-mobile-modal" >Pickup</a>
 						  			</li>
 						  			<li class="nav-item" hidden>
-						    			<a class="nav-link" href="#track-otp-modal" data-toggle="tab">Drop</a>
+						    			<a class="nav-link" href="#track-otp-modal">Drop</a>
 						  			</li>						  			
 								</ul>
 								<div class="tab-content" id="bookingTabContent">
 							  		<div class="tab-pane fade show active" id="track-mobile-modal" role="tabpanel" aria-labelledby="track-mobile-modal-tab">								
-										<form>											
+										<form data-toggle="validator" role="form">	
 											<div class="form-group">
 												<label for="header-track-user-mobile">Enter Mobile Number</label>
-												<input type="text" class="form-control" id="header-track-user-mobile" placeholder="Enter mobile number">
+												<input type="tel" class="form-control"  pattern="^[789]\d{9}$" id="header-track-user-mobile" placeholder="Enter mobile number">
+											<div class="help-block with-errors"></div>
 											</div>
 										  
 										  	<br>
@@ -48,10 +49,11 @@
 							  		</div>				
 				      			
 							  		<div class="tab-pane fade" id="track-otp-modal" role="tabpanel" aria-labelledby="track-otp-modal-tab">								
-										<form>											
+										<form data-toggle="validator" role="form">											
 											<div class="form-group">
 												<label for="header-track-otp">Enter OTP</label>
-												<input type="text" class="form-control" id="header-track-otp" placeholder="Enter 4 Digit OTP">
+												<input type="tel" class="form-control" id="header-track-otp" placeholder="Enter 4 Digit OTP"  pattern="^\d{4}$">
+												<div class="help-block with-errors"></div>
 											</div>
 										  
 										  	<br>

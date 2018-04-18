@@ -59,14 +59,14 @@ $(document).ready(function(){
         valid = $tab.find(".has-error").length == 0 ? true : false;
 
         if(!valid) {
-            alert ("Hello");
              return;
         }
-        $('#otpModal').modal('show');
+        /*$('#otpModal').modal('show');*/
         var usermobile = document.getElementById("usermobile").value;
+        var username = document.getElementById("username").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
-        var data = {mobile: mobile, usermobile: usermobile};
+        var data = {mobile: mobile, usermobile: usermobile, username: username};
         console.log(usermobile);
         $.ajax({
             type: "POST",
@@ -75,8 +75,15 @@ $(document).ready(function(){
             url: "http://www.loopor.com/pacemove/code/testsendotp.php",
             data: data,
             success: function(data) {
-            $("a[href='#otpModal']").tab("show");
-            console.log("returnedData", data);
+                if (data != 'localhost') {
+                    alert('invalid number');
+                    
+                }
+                else {
+                    $('#otpModal').modal('show');
+                    console.log("returnedData", data);        
+                }
+            
             },
             error: function(data) {
             window.location = "http://www.loopor.com/pacemove/code/details.php";
@@ -86,6 +93,18 @@ $(document).ready(function(){
     });
 
     $("#btn-otp-submit").on("click", function(e){
+        var $tab = $(".modal:visible");
+
+        var valid = true;
+        $('input', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("usermobile").value;
         var username = document.getElementById("username").value;
         var useremail = document.getElementById("useremail").value;
@@ -121,7 +140,12 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            if(data == 'error'){
+               alert("Please verify your OTP!");
+            }
+            else{
+               window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            }
             },
             error: function(data) {
             console.log("error", data);
@@ -134,12 +158,60 @@ $(document).ready(function(){
         startDate: '+0d'
     });
 
+    $("#track-profile-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
+        var username = document.getElementById("username").value;
+        var useremail = document.getElementById("useremail").value;
+        var data = {
+                    username: username,
+                    useremail: useremail
+                    };
+        //console.log(pickuplift,pickupfloor,pickupLocationApartment);
+        $.ajax({
+            type: "POST",
+            dataType:'json',
+            url: "http://www.loopor.com/pacemove/code/trackinsertuser.php",
+            data: data,
+            success: function(data) {
+            console.log("success", data);
+            $("a[href='#trackpickup']").tab("show");
+            },
+            error: function(data) {
+            console.log("error", data);
+            }
+        });
+        
+    });
+
     $("#trackpickupnext").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         $("a[href='#drop']").tab("show");
     });
 
     $("#trackdropprevious").on("click", function(e){
-        $("a[href='#pickup']").tab("show");
+        $("a[href='#trackpickup']").tab("show");
     });
 
     $('#trackpickupdate').datepicker({
@@ -149,6 +221,18 @@ $(document).ready(function(){
     });
 
     $("#header-track-next").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+        console.log(valid);
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
@@ -157,13 +241,19 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            data: {usermobile: usermobile},
+            data: data,
             /*url: "http://www.loopor.com/pacemove/code/testsendotp.php", */
-            url: "http://www.loopor.com/pacemove/code/testsendotp.php",
+            url: "http://www.loopor.com/pacemove/code/tracksendotp.php",
             data: data,
             success: function(data) {
-            $("a[href='#track-otp-modal']").tab("show");
-            console.log("returnedData", data);
+                if (data != 'localhost') {
+                    alert('invalid number');
+                    
+                }
+                else {
+                    $("a[href='#track-otp-modal']").tab("show");
+                    console.log("returnedData", data);        
+                }
             },
             error: function(data) {
             window.location = "http://www.loopor.com/pacemove/code/details.php";
@@ -173,6 +263,18 @@ $(document).ready(function(){
     });
 
     $("#header-track-otp-submit").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
+
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var usermobile = document.getElementById("header-track-user-mobile").value;
         //append country code to mobile
         var mobile = "91".concat(usermobile);
@@ -186,8 +288,8 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
 
-             window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
-console.log("returnedData", data);
+            window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
+            console.log("returnedData", data);
             },
             error: function(data) {
             console.log("error", data);
@@ -196,7 +298,18 @@ console.log("returnedData", data);
     });
 
     $("#trackdropnext").on("click", function(e){
+        var $tab = $(".tab-pane:visible");
 
+        var valid = true;
+        $('input, select', $tab).each(function(i, v) {
+                $(this).trigger('focusout');
+        });
+
+        valid = $tab.find(".has-error").length == 0 ? true : false;
+
+        if(!valid) {
+             return;
+        }
         var pickupLocationApartment = document.getElementById("trackpickupLocationApartment").value;
         var pickupfloor = document.getElementById("trackpickupfloor").value;
         var pickuplift = document.getElementById("trackpickuplift").value;

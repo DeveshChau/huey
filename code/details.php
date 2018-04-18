@@ -1,5 +1,6 @@
 <?php
 session_start();
+if(!isset($_SESSION['sessionvariable'])){
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -12,21 +13,18 @@ session_start();
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css" />
 		<link rel="stylesheet" href="./css/style.css">
-		<style type="text/css">
-			html {
-			  	background: url(img/bg1.jpg) no-repeat center center fixed;
-			  	-webkit-background-size: cover;
-			  	-moz-background-size: cover;
-			  	-o-background-size: cover;
-			  	background-size: cover;
-			}
-		</style>
   	</head>
   	<body class="child-page">
 
-	<?php
-		include 'header.php';
-	?>
+	<header>
+  	<div class="navbar navbar-light  box-shadow" id="main-header">
+		<div class="container">
+		  <a href="#" class="navbar-brand d-flex align-items-center">
+			<img id="logo" src="./img/logo.png">
+		  </a>
+		</div>
+	</div>
+
 	<main role="main" >
 		<br><br>
 	<div class="container">
@@ -156,7 +154,7 @@ session_start();
 
 								  <div class="form-group">
   									<label for="usermobile">Mobile</label>
-  									<input type="tel" id="usermobile" pattern="^\d{10}$" class="form-control" placeholder="Enter your Mobile" required>
+  									<input type="tel" id="usermobile" pattern="^[789]\d{9}$"^ class="form-control" placeholder="Enter your Mobile" required>
   									<div class="help-block with-errors"></div>
 								  </div>
 
@@ -184,20 +182,22 @@ session_start();
 	</main><!-- /.container -->
 
 	<!-- Modal -->
-	<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true" data-backdrop="static">
+	<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true" data-backdrop="static" data-target="otpModal">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-body">
+	      	<form role="form" data-toggle="validator">
 	        <div class="form-group">
     				<label for="otp">Enter OTP</label>
-    				<input type="text" class="form-control" id="otp" placeholder="Enter 4 Digit OTP">
+    				<input type="tel" pattern="^\d{4}$"  class="form-control" id="otp" placeholder="Enter 4 Digit OTP" required="">
+    				<div class="help-block with-errors"></div>
     			</div>
 
     			<div class="form-group">
     				<button type="button" class="btn btn-primary" id="btn-otp-submit">Submit</button>
     				<a class="float-right" id="retry-otp" href="#">Resend OTP</a>
     			</div>
-
+			</form>
 	      </div>
 	    </div>
 	  </div>
@@ -214,3 +214,8 @@ session_start();
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZTJTA-s7jJHmEL0I720ztSf9vNFZj42U&libraries=places&callback=activatePlacesSearch"></script>
   </body>
 </html>
+<?php
+}else {
+	header('location: trackdetails.php');
+}
+?>

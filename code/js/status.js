@@ -4,18 +4,18 @@ function updateStatus(pmorderid){
     data = {pmorderid: pmorderid, statuslist: statuslist };
     var test = "#"+d+" option";
 
-    if (statuslist =='Drop') {               
-        $("#"+d+" option[value='Booked']").prop("disabled","disabled");
-        $("#"+d+" option[value='Pickup']").prop("disabled","disabled");
-        $("#"+d+" option[value='Moving']").prop("disabled","disabled");
-        $("#"+d+" option[value='Drop']").prop("disabled","disabled");        
-    }else if (statuslist=='Moving') {               
-        $("#"+d+" option[value='Booked']").prop("disabled","disabled");
-        $("#"+d+" option[value='Pickup']").prop("disabled","disabled");
-        $("#"+d+" option[value='Moving']").prop("disabled","disabled");        
-    }else if (statuslist=='Pickup') {               
-        $("#"+d+" option[value='Booked']").prop("disabled","disabled");
-        $("#"+d+" option[value='Pickup']").prop("disabled","disabled");
+    if (statuslist =='Order Delivered') {               
+        $("#"+d+" option[value='Move Booked']").prop("disabled","disabled");
+        $("#"+d+" option[value='Order Picked Up']").prop("disabled","disabled");
+        $("#"+d+" option[value='In Transit (Place)']").prop("disabled","disabled");
+        $("#"+d+" option[value='Order Delivered']").prop("disabled","disabled");        
+    }else if (statuslist=='In Transit (Place)') {               
+        $("#"+d+" option[value='Move Booked']").prop("disabled","disabled");
+        $("#"+d+" option[value='Order Picked Up']").prop("disabled","disabled");
+        $("#"+d+" option[value='In Transit (Place)']").prop("disabled","disabled");        
+    }else if (statuslist=='Order Picked Up') {               
+        $("#"+d+" option[value='Move Booked']").prop("disabled","disabled");
+        $("#"+d+" option[value='Order Picked Up']").prop("disabled","disabled");
     }
 
     console.log(pmorderid,statuslist,test);

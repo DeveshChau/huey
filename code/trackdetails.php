@@ -1,6 +1,19 @@
 <?php
 session_start();
 if(isset($_SESSION['sessionvariable'])){
+	$servername = "localhost";
+	$username = "huey_pacemove";
+	$password = "huey_PM@1";
+	$dbname = "pm_huey";
+	// Create connection
+	$link = mysqli_connect($servername, $username, $password, $dbname);
+
+	if($link === false){
+	    die("ERROR: Could not connect. " . mysqli_connect_error());
+	}
+	$usermobile = $_SESSION["usermobile"];
+	$useridsearch = "SELECT * from pmusers where pmusermobile = '$usermobile'";
+	$useridsearchresult = mysqli_query($link, $useridsearch);		  	
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -28,33 +41,75 @@ if(isset($_SESSION['sessionvariable'])){
 			<div class="col-md-8">
 				<div class="card" id="inquiry-form">
 				  	<div class="card-header" >
-						<ul class="nav nav-pills nav-fill" role="tablist" id="details-tab">
+						<ul class="nav nav-pills nav-fill" role="tablist">							
+						   <?php
+								if(mysqli_num_rows($useridsearchresult)==NULL){ ?>
 						  <li class="nav-item active">
-						    <a class="nav-link active" href="#pickup" data-toggle="tab">Pickup</a>
+						    <a class="nav-link active" href="#profile" >Profile</a>						    
+						  </li>
+						  <?php } ?>						  
+						  <li class="nav-item <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'active';}?>">
+						    <a class="nav-link <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'active';}?>" href="#trackpickup">Pickup</a>
 						  </li>
 						  <li class="nav-item">
-						    <a class="nav-link" href="#drop" data-toggle="tab">Drop</a>
-						  </li>						  
+						    <a class="nav-link" href="#drop">Drop</a>
+						  </li>
 						</ul>
 				  	</div>
 
 				  	<div class="card-body">
-						<div class="tab-content" id="bookingTabContent">
-					  		<div class="tab-pane fade show active" id="pickup" role="tabpanel" aria-labelledby="pickup-tab">
+						<div class="tab-content" id="bookingTabContent">							
+
+							<div class="tab-pane fade <?php
+								if(mysqli_num_rows($useridsearchresult)==NULL){
+								 echo 'show active';}?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							  	<form data-toggle="validator" role="form">
+
+								  <div class="form-group">
+  									<label for="username">Name</label>
+  									<input type="text" class="form-control" id="username" placeholder="Enter your Name" required >
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <div class="form-group">
+  									<label for="useremail">Email</label>
+  									<input type="email" class="form-control" id="useremail" placeholder="Enter your Email" required>
+  									<div class="help-block with-errors"></div>
+								  </div>
+
+								  <br>
+
+								  <div class="form-group" style="text-align: center;">							  	 
+					           		<button type="button" class="btn btn-primary  btn-lg " id="track-profile-next">Next</button>
+								  </div>
+
+								</form>
+					  		</div>
+								
+					  		<div class="tab-pane fade <?php
+								if(mysqli_num_rows($useridsearchresult)!=NULL){
+								 echo 'show active';}?> " id="trackpickup" role="tabpanel" aria-labelledby="trackpickup-tab">
 						
 								<form data-toggle="validator" role="form">
 
 								  	<div class="form-group">
 										<label for="trackpickupdate">Date</label>
 									  	<div class="input-group date">
-											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY">
+											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY" required>											
 										</div>
+										<div class="help-block with-errors"></div>
 								  	</div>
 
 								  	<div class="form-group">
 										<label for="trackpickupLocationApartment">Location / Apartment</label>
-										<input type="text" class="form-control" id="trackpickupLocationApartment" placeholder="Enter your Location / Apartment" required>
+										<input type="text" class="form-control" id="trackpickupLocationApartment" placeholder="Enter your Location / Apartment" required>				
+										<div class="help-block with-errors"></div>
 								  	</div>
+
 
 								  	<div class="form-group">
 										<label for="trackpickupfloor">Floor</label>
@@ -85,42 +140,44 @@ if(isset($_SESSION['sessionvariable'])){
 					  		</div>
 
 					  		<div class="tab-pane fade" id="drop" role="tabpanel" aria-labelledby="drop-tab">
-								<form>
+								<form data-toggle="validator" role="form">
 
-								  <div class="form-group">
-									<label for="trackdropLocationApartment">Location / Apartment</label>
-									<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment">
-								  </div>
+									  <div class="form-group">
+										<label for="trackdropLocationApartment">Location / Apartment</label>
+										<input type="text" class="form-control" id="trackdropLocationApartment" placeholder="Enter your Location / Apartment" required>
+										<div class="help-block with-errors"></div>
+									  </div>
 
-								  <div class="form-group">
-									<label for="trackdropfloor">Floor</label>
-									<select class="form-control" id="trackdropfloor">
-									  <option value="1">1</option>
-									  <option value="2">2</option>
-									  <option value="3">3</option>
-									  <option value="4">4</option>
-									  <option value="5">5</option>
-									</select>
-								  </div>
+									  <div class="form-group">
+										<label for="trackdropfloor">Floor</label>
+										<select class="form-control" id="trackdropfloor">
+										  <option value="1">1</option>
+										  <option value="2">2</option>
+										  <option value="3">3</option>
+										  <option value="4">4</option>
+										  <option value="5">5</option>
+										</select>
+									  </div>
 
-								  <div class="form-group">
-									<label for="trackdroplift">Lift available for moving</label>
-									<select class="form-control" id="trackdroplift">
-									  <option value="Yes">Yes</option>
-									  <option value="No">No</option>
-									</select>
-								  </div>
+									  <div class="form-group">
+										<label for="trackdroplift">Lift available for moving</label>
+										<select class="form-control" id="trackdroplift">
+										  <option value="Yes">Yes</option>
+										  <option value="No">No</option>
+										</select>
+									  </div>
 
 								  <br>								
-								  <div class="form-group" style="text-align: center;">
-									<button type="button" class="btn btn-primary  btn-lg " id="trackdropprevious">Previous</button>
+								  	 <div class="form-group" style="text-align: center;">
+										<button type="button" class="btn btn-primary  btn-lg " id="trackdropprevious">Previous</button>
 																		
-									<button type="button" class="btn btn-primary  btn-lg" id="trackdropnext">Next</a>									
-								  </div>	
+										<button type="button" class="btn btn-primary  btn-lg" id="trackdropnext">Next</a>									
+								  	 </div>	
 																	  
 								</form>
 
-					 		</div>					  		
+					 		</div>
+					 							 						  	
 				  	</div>
 
 				</div>
@@ -135,13 +192,7 @@ if(isset($_SESSION['sessionvariable'])){
 	</main><!-- /.container -->
 
 	
-	<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="./js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+	<?php include 'footer.php';?>
 	<script type="text/javascript">
       function activatePlacesSearch(){
         var input1 = document.getElementById('trackpickupLocationApartment');
