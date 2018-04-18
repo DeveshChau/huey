@@ -34,8 +34,9 @@
 
 	$orders = "INSERT INTO pmorders (pmorderdate, pmorderpickuplocation, pmorderpickupfloor, pmorderpickuplift, pmorderdroplocation, pmorderdropfloor, pmorderdroplift, pmuserid, statuslist) VALUES ('$pickupdate', '$pickupLocationApartment', '$pickupfloor', '$pickuplift', '$dropLocationApartment', '$dropfloor', '$droplift', '$userid', 'Move Booked')";
 	$ordersresult = mysqli_query($link, $orders);
-	
-	/*$curl = curl_init();
+
+	$curl = curl_init();
+
 
 	curl_setopt_array($curl, array(
 
@@ -58,8 +59,10 @@
 
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
-	} else {*/
+
+	} else {
 	  echo json_encode($userid);
-	/*}*/	
+	}	
+
 }
 ?>

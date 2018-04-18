@@ -140,7 +140,14 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://localhost/huey/code/movables.php";
+
+            if(data == 'error'){
+               alert("Please verify your OTP!");
+            }
+            else{
+               window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            }
+
             },
             error: function(data) {
             console.log("error", data);
@@ -176,7 +183,9 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://localhost/huey/code/trackinsertuser.php",
+
+            url: "http://www.loopor.com/pacemove/code/trackinsertuser.php",
+
             data: data,
             success: function(data) {
             console.log("success", data);
@@ -237,8 +246,10 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
             data: data,
-            /*url: "http://localhost/huey/code/testsendotp.php", */
-            url: "http://localhost/huey/code/tracksendotp.php",
+
+            /*url: "http://www.loopor.com/pacemove/code/testsendotp.php", */
+            url: "http://www.loopor.com/pacemove/code/tracksendotp.php",
+
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
@@ -249,7 +260,7 @@ $(document).ready(function(){
                     $("a[href='#track-otp-modal']").tab("show");
                     console.log("returnedData", data);        
                 }
-            
+
             },
             error: function(data) {
             window.location = "http://localhost/huey/code/details.php";
@@ -284,7 +295,9 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
 
-            window.location = "http://localhost/huey/code/userdashboard.php";
+
+            window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
+
             console.log("returnedData", data);
             },
             error: function(data) {

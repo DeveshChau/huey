@@ -12,7 +12,8 @@
 	}
 	
 
-/*	$otp = rand(1000,9999);
+
+	$otp = rand(1000,9999);
 	$mobile = $_POST['mobile'];
 	$dusername = $_POST['username'];
 	$curl = curl_init();
@@ -38,10 +39,10 @@
 
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
+	} else {  
 
-	} else {*/  
 	  echo json_encode($servername);
-	/*}*/
+	}
 
 
 ?>
