@@ -39,7 +39,7 @@
 					</div>
 				</div>
 			    <?php } else{ ?>
-				<a class="" href="#" data-toggle="modal" data-target="#track">TRACK</a>				
+				<a class="trackModal" href="#" data-toggle="modal" data-target="#track">TRACK</a>				
 				<div class="modal fade" id="track" tabindex="-1" role="dialog" aria-labelledby="otpModalLabel" aria-hidden="true" data-backdrop="static">
 				  <div class="modal-dialog" role="document">
 				    	<div class="modal-content">

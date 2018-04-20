@@ -22,12 +22,13 @@ function updateStatus(pmorderid){
     $.ajax({
         type: "POST",
         dataType:'json',
-        url: "http://www.loopor.com/pacemove/code/status.php",
+        url: "http://localhost/huey/code/status.php",
         data: data,
          success: function(data) {
            	var st = data;
            	
             console.log(st);
+            window.location = "http://localhost/huey/code/admindashboard.php";
             
         },
         error: function(data) {

@@ -2,8 +2,8 @@
 	session_start();
 	if(isset($_SESSION['sessionvariable'])){	
 	$servername = "localhost";
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 	
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -81,43 +81,35 @@
 						<div class="tab-content">
 					  		<div class="tab-pane fade show active" id="current-order" role="tabpanel" aria-labelledby="pickup-tab">
 					  			<div class="container">
-					  				<div class="row">
-					  					<br>
-							 			<div class="col-md-2">
-							 			<h5>Date(Y:M:D)</h5>
-							 			</div>
-							 			<div class="col-md-3">
-							 			<h5>Pick Up address</h5>
-							 			</div>
-								 		<div class="col-md-3">
-										<h5>Drop Location</h5>
-							 			</div>
-							 			<div class="col-md-3">
-							 				<h5>Movables</h5>
-							 			</div>
-							 			<div class="col-md-1">
-							 				<h5>Status</h5>
-							 			</div>
-							 			<br>
-								 	</div>
+					  			
 					  				<?php foreach ($row as $key => $value) {?>
 									<div class="row">
-							 			<div class="col-md-2">
-							 			<?php echo  $value['pmorderdate'];?>
-							 			<div><?php echo "Name: ". $value['pmusername'];?></div>
-							 			<div><?php echo "Mobile: ". $value['pmusermobile'];?></div>
-							 			</div>
 							 			<div class="col-md-3">
+							 			<?php echo "<b>Date: </b>". $value['pmorderdate'];?>
+							 			<div><?php echo "<b>Name:</b> ". $value['pmusername'];?></div>
+							 			<div><?php echo "<b>Mobile:</b> ". $value['pmusermobile'];?></div>
+							 			</div>
+							 			<div class="col-md-5">
+							 				<div><b>Pickup Location</b></div>
 							 			<?php echo  $value['pmorderpickuplocation'];?>
 							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
 							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
 							 			</div>
-							 			<div class="col-md-3">
+							 			<div class="col-md-4">
+							 				<div><b>Drop Location</b></div>
 							 			<?php echo  $value['pmorderdroplocation'];?>
 							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
 							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
 							 			</div>
+							 		</div>
+							 		<hr>
+							 		<div class="row">
 							 			<div class="col-md-3">
+							 				<div><b>Refference Number</b></div>
+							 			<?php echo  $value['pmrefference'];?>
+							 			</div>
+							 			<div class="col-md-5">
+							 				<div><b>Movable Item List</b></div>
 								 			<?php 
 								 			$user = $value['pmuserid'];
 								 			$order = $value['pmorderid'];											
@@ -129,13 +121,24 @@
 												$row3 = mysqli_fetch_assoc($movableresult);
 												$itemother = $row3["pmothermovables"];	
 												$item = $row3["pmitems"];
+												$qauntity = $row3["pmquantity"];
 
 											}
-											echo $item;
+
+											$mov = explode(",",$item);
+											$movqty = explode(",",$qauntity);
+											echo "<br>";
+											$n = sizeof($mov);
+											for($i=0 ;$i<($n-1);$i++){
+											    echo $mov[$i] ."-". $movqty[$i].", ";
+											}
 											echo $itemother;
+											/*echo $item;
+											echo $itemother;*/
 											?>
 										</div>
-										<div class="col-md-1">
+										<div class="col-md-4">
+											<div><b>Status</b></div>
 											<?php echo $value['statuslist'];?>
 											<?php 
 												$orderid = $value['pmorderid'];
@@ -148,49 +151,41 @@
 											<button type="submit" id="statusUpdate" onclick="updateStatus('<?php echo $orderid ?>')">Update</button>
 							 			</div>
 								 	</div>	
-								 	<hr>							 	
+								 	<hr style=" border-width: 2px; border-color: red;">							 	
 								 	<?php }?>
 					  			</div>
 							</div>
 					  		<div class="tab-pane fade show" id="previous-order" role="tabpanel" aria-labelledby="previous-order">
 					  			<div class="container">
-					  				<div class="row">
-					  					<br>
-							 			<div class="col-md-2">
-							 			<h5>Date(Y:M:D)</h5>
-							 			</div>
-							 			<div class="col-md-3">
-							 			<h5>Pick Up address</h5>
-							 			</div>
-								 		<div class="col-md-3">
-										<h5>Drop Location</h5>
-							 			</div>
-							 			<div class="col-md-3">
-							 				<h5>Movables</h5>
-							 			</div>
-							 			<div class="col-md-1">
-							 				<h5>Status</h5>
-							 			</div>
-							 			<br>
-								 	</div>
+					  				
 					  				<?php foreach ($row2 as $key => $value) {?>
 									<div class="row">
-							 			<div class="col-md-2">
-							 			<?php echo  $value['pmorderdate'];?>
+							 			<div class="col-md-3">
+							 			<?php echo "<b>Date: </b>". $value['pmorderdate'];?>
 							 			<div><?php echo "Name: ". $value['pmusername'];?></div>
 							 			<div><?php echo "Mobile: ". $value['pmusermobile'];?></div>
 							 			</div>
-							 			<div class="col-md-3">
+							 			<div class="col-md-5">
+							 				<div><b>Pickup Location</b></div>
 							 			<?php echo  $value['pmorderpickuplocation'];?>
 							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
 							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
 							 			</div>
-							 			<div class="col-md-3">
+							 			<div class="col-md-4">
+							 				<div><b>Drop Location</b></div>
 							 			<?php echo  $value['pmorderdroplocation'];?>
 							 			<div><?php echo "Lift: ". $value['pmorderpickuplift'];?></div>
 							 			<div><?php echo "Floor: ". $value['pmorderpickupfloor'];?></div>
 							 			</div>
+							 		</div>
+							 		<hr>
+							 		<div class="row">
 							 			<div class="col-md-3">
+							 				<div><b>Refference Number</b></div>
+							 			<?php echo  $value['pmrefference'];?>
+							 			</div>
+							 			<div class="col-md-5">
+							 				<div><b>Movable Item List</b></div>
 								 			<?php 
 								 			$user = $value['pmuserid'];
 								 			$order = $value['pmorderid'];											
@@ -202,13 +197,24 @@
 												$row3 = mysqli_fetch_assoc($movableresult);
 												$itemother = $row3["pmothermovables"];	
 												$item = $row3["pmitems"];
+												$qauntity = $row3["pmquantity"];
 
 											}
-											echo $item;
+											$mov = explode(",",$item);
+											$movqty = explode(",",$qauntity);
+											echo "<br>";
+											$n = sizeof($mov);
+											for($i=0 ;$i<($n-1);$i++){
+											    echo $mov[$i] ."-". $movqty[$i].", ";
+											}
 											echo $itemother;
+											/*
+											echo $item;
+											echo $itemother;*/
 											?>
 										</div>
-										<div class="col-md-1">
+										<div class="col-md-4">
+											<div><b>Status</b></div>
 											<?php echo $value['statuslist'];?>
 											<?php 
 												$orderid = $value['pmorderid'];
@@ -221,7 +227,7 @@
 											<button type="submit" id="statusUpdate" onclick="updateStatus('<?php echo $orderid ?>')">Update</button>
 							 			</div>
 								 	</div>	
-								 	<hr>							 	
+								 	<hr style=" border-width: 2px; border-color: red;">
 								 	<?php }?>
 					  			</div>
 							</div>					  		

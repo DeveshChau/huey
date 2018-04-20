@@ -1,6 +1,5 @@
 $(document).ready(function(){
-
-
+    
 	$('#details-tab a').on('click', function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
@@ -19,6 +18,7 @@ $(document).ready(function(){
 		if(!valid) {
 			 return;
 		}
+
 
     $("a[href='#drop']").tab("show");
 	});
@@ -61,6 +61,7 @@ $(document).ready(function(){
         if(!valid) {
              return;
         }
+        
         /*$('#otpModal').modal('show');*/
         var usermobile = document.getElementById("usermobile").value;
         var username = document.getElementById("username").value;
@@ -72,11 +73,11 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
             data: data,
-            url: "http://www.loopor.com/pacemove/code/testsendotp.php",
+            url: "http://localhost/huey/code/testsendotp.php",
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
-                    alert('invalid number');
+                    alert('Please check the number');
                     
                 }
                 else {
@@ -86,7 +87,7 @@ $(document).ready(function(){
             
             },
             error: function(data) {
-            window.location = "http://www.loopor.com/pacemove/code/details.php";
+            window.location = "http://localhost/huey/code/details.php";
             console.log("error", data);
             }
         });
@@ -136,7 +137,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/testverifyotp.php",
+            url: "http://localhost/huey/code/testverifyotp.php",
             data: data,
             success: function(data) {
             console.log("success", data);
@@ -144,7 +145,7 @@ $(document).ready(function(){
                alert("Please verify your OTP!");
             }
             else{
-               window.location = "http://www.loopor.com/pacemove/code/movables.php";
+               window.location = "http://localhost/huey/code/movables.php";
             }
             },
             error: function(data) {
@@ -154,7 +155,7 @@ $(document).ready(function(){
     });
 
     $('#datepicker').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd/mm/yyyy',
         startDate: '+0d'
     });
 
@@ -181,7 +182,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/trackinsertuser.php",
+            url: "http://localhost/huey/code/trackinsertuser.php",
             data: data,
             success: function(data) {
             console.log("success", data);
@@ -215,7 +216,7 @@ $(document).ready(function(){
     });
 
     $('#trackpickupdate').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd/mm/yyyy',
         startDate: '+0d'
 
     });
@@ -242,8 +243,8 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
             data: data,
-            /*url: "http://www.loopor.com/pacemove/code/testsendotp.php", */
-            url: "http://www.loopor.com/pacemove/code/tracksendotp.php",
+            /*url: "http://localhost/huey/code/testsendotp.php", */
+            url: "http://localhost/huey/code/tracksendotp.php",
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
@@ -256,7 +257,7 @@ $(document).ready(function(){
                 }
             },
             error: function(data) {
-            window.location = "http://www.loopor.com/pacemove/code/details.php";
+            window.location = "http://localhost/huey/code/details.php";
             console.log("error", data);
             }
         });
@@ -284,12 +285,16 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/trackverifyotp.php",
+            url: "http://localhost/huey/code/trackverifyotp.php",
             data: data,
             success: function(data) {
-
-            window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
-            console.log("returnedData", data);
+                if(data == 'error'){
+                    alert("Please verify your OTP!");
+                }
+                else{
+                    window.location = "http://localhost/huey/code/userdashboard.php";
+                    console.log("returnedData", data);
+                }
             },
             error: function(data) {
             console.log("error", data);
@@ -328,11 +333,11 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/trackinsertorder.php",
+            url: "http://localhost/huey/code/trackinsertorder.php",
             data: data,
             success: function(data) {
             console.log("success", data);
-            window.location = "http://www.loopor.com/pacemove/code/movables.php";
+            window.location = "http://localhost/huey/code/movables.php";
             },
             error: function(data) {
             console.log("error", data);
@@ -340,6 +345,18 @@ $(document).ready(function(){
         });
     });
 
+
+    document.getElementById('track').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+    document.getElementById('otpModal').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+    
 	$("#retry-otp").on("click", function(e){
 		var usermobile = document.getElementById("usermobile").value;
 		//append country code to mobile
@@ -348,7 +365,7 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             dataType:'json',
-            url: "http://www.loopor.com/pacemove/code/retryotp.php",
+            url: "http://localhost/huey/code/retryotp.php",
             data: data,
             success: function(data) {
             console.log("returnedData", data);

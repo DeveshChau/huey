@@ -1,8 +1,8 @@
 <?php	
 	session_start();
 	$servername = "localhost";
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -12,7 +12,7 @@
 	}
 	
 
-	$otp = rand(1000,9999);
+	/*$otp = rand(1000,9999);
 	$mobile = $_POST['mobile'];
 	$dusername = $_POST['username'];
 	$curl = curl_init();
@@ -41,6 +41,8 @@
 
 	} else {  
 	  echo json_encode($servername);
-	}
+	}*/
+
+	echo json_encode("localhost");
 
 ?>
