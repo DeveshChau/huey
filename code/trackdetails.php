@@ -2,9 +2,8 @@
 session_start();
 if(isset($_SESSION['sessionvariable'])){
 	$servername = "localhost";
-
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
+	$username = "root";
+	$password = "root";
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -100,7 +99,7 @@ if(isset($_SESSION['sessionvariable'])){
 								  	<div class="form-group">
 										<label for="trackpickupdate">Date</label>
 									  	<div class="input-group date">
-											<input type="text" class="form-control" id="trackpickupdate" placeholder="MM/DD/YYYY" required>											
+											<input type="text" class="form-control" id="trackpickupdate" placeholder="DD/MM/YYYY" required>											
 										</div>
 										<div class="help-block with-errors"></div>
 								  	</div>
@@ -120,6 +119,13 @@ if(isset($_SESSION['sessionvariable'])){
 										  <option value="3">3</option>
 										  <option value="4">4</option>
 										  <option value="5">5</option>
+										  <option value="6">6</option>
+										  <option value="7">7</option>
+										  <option value="8">8</option>
+										  <option value="9">9</option>
+										  <option value="10">10</option>
+										  <option value="11">11</option>
+										  <option value="12">12</option>
 										</select>
 								  	</div>
 

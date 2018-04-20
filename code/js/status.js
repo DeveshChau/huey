@@ -28,6 +28,7 @@ function updateStatus(pmorderid){
            	var st = data;
            	
             console.log(st);
+            window.location = "http://localhost/huey/code/admindashboard.php";
             
         },
         error: function(data) {

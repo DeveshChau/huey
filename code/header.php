@@ -43,7 +43,7 @@
 										  	<br>
 
 										  	<div class="form-group" style="text-align: center;">
-											<button type="button" class="btn btn-primary  btn-lg " id="header-track-next">Next</button>
+											<a  class="btn btn-primary  btn-lg " id="header-track-next">Next</a>
 										 	</div>	
 										</form>
 							  		</div>				
@@ -59,7 +59,7 @@
 										  	<br>
 
 										  	<div class="form-group">
-												<button type="button" class="btn btn-primary" id="header-track-otp-submit" style="text-align: center;">Submit</button>
+												<a type="button" class="btn btn-primary" id="header-track-otp-submit" style="text-align: center;">Submit</a>
 												<a class="float-right" id="retry-otp" href="#">Resend OTP</a>
 											</div>	
 										</form>

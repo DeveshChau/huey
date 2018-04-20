@@ -4,11 +4,9 @@
 }
 
 .child-page {
-	background: url(./img/bg1.png) no-repeat center center fixed;
-			  	-webkit-background-size: cover;
-			  	-moz-background-size: cover;
-			  	-o-background-size: cover;
-			  	background-size: cover;
+
+	background: url(../img/Untitled.png);
+
 }
 
 #main-header {

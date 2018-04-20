@@ -12,8 +12,7 @@
 	}
 	
 
-
-	$otp = rand(1000,9999);
+	/*$otp = rand(1000,9999);
 	$mobile = $_POST['mobile'];
 	$dusername = $_POST['username'];
 	$curl = curl_init();
@@ -42,7 +41,9 @@
 	} else {  
 
 	  echo json_encode($servername);
-	}
+	}*/
+
+	echo json_encode("localhost");
 
 
 ?>

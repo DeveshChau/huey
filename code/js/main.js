@@ -1,6 +1,5 @@
 $(document).ready(function(){
-
-
+    
 	$('#details-tab a').on('click', function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
@@ -19,6 +18,7 @@ $(document).ready(function(){
 		if(!valid) {
 			 return;
 		}
+
 
     $("a[href='#drop']").tab("show");
 	});
@@ -61,6 +61,7 @@ $(document).ready(function(){
         if(!valid) {
              return;
         }
+        
         /*$('#otpModal').modal('show');*/
         var usermobile = document.getElementById("usermobile").value;
         var username = document.getElementById("username").value;
@@ -76,7 +77,7 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
-                    alert('invalid number');
+                    alert('Please check the number');
                     
                 }
                 else {
@@ -145,7 +146,7 @@ $(document).ready(function(){
                alert("Please verify your OTP!");
             }
             else{
-               window.location = "http://www.loopor.com/pacemove/code/movables.php";
+               window.location = "http://localhost/huey/code/movables.php";
             }
 
             },
@@ -156,7 +157,7 @@ $(document).ready(function(){
     });
 
     $('#datepicker').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd/mm/yyyy',
         startDate: '+0d'
     });
 
@@ -184,8 +185,7 @@ $(document).ready(function(){
             type: "POST",
             dataType:'json',
 
-            url: "http://www.loopor.com/pacemove/code/trackinsertuser.php",
-
+            url: "http://localhost/huey/code/trackinsertuser.php",
             data: data,
             success: function(data) {
             console.log("success", data);
@@ -219,7 +219,7 @@ $(document).ready(function(){
     });
 
     $('#trackpickupdate').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'dd/mm/yyyy',
         startDate: '+0d'
 
     });
@@ -247,9 +247,8 @@ $(document).ready(function(){
             dataType:'json',
             data: data,
 
-            /*url: "http://www.loopor.com/pacemove/code/testsendotp.php", */
-            url: "http://www.loopor.com/pacemove/code/tracksendotp.php",
-
+            /*url: "http://localhost/huey/code/testsendotp.php", */
+            url: "http://localhost/huey/code/tracksendotp.php",
             data: data,
             success: function(data) {
                 if (data != 'localhost') {
@@ -295,10 +294,13 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
 
-
-            window.location = "http://www.loopor.com/pacemove/code/userdashboard.php";
-
-            console.log("returnedData", data);
+                if(data == 'error'){
+                    alert("Please verify your OTP!");
+                }
+                else{
+                    window.location = "http://localhost/huey/code/userdashboard.php";
+                    console.log("returnedData", data);
+                }
             },
             error: function(data) {
             console.log("error", data);
@@ -349,6 +351,18 @@ $(document).ready(function(){
         });
     });
 
+
+    document.getElementById('track').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+    document.getElementById('otpModal').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+    });
+    
 	$("#retry-otp").on("click", function(e){
 		var usermobile = document.getElementById("usermobile").value;
 		//append country code to mobile

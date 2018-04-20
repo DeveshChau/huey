@@ -2,9 +2,8 @@
 session_start();
 $servername = "localhost";
 
-$username = "huey_pacemove";
-$password = "huey_PM@1";
-
+$username = "root";
+$password = "root";
 $dbname = "pm_huey";
 
 $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -16,9 +15,9 @@ if($link === false){
 $usermobile = $_POST['usermobile'];
 $mobile = $_POST['mobile'];
 $otp = $_POST['otp'];
+$response1 = "success";
 
-
-$curl = curl_init();
+/*$curl = curl_init();
 
 
 curl_setopt_array($curl, array(
@@ -48,9 +47,20 @@ if ($err) {
 } 
 
 else {
-$_SESSION["sessionvariable"] = "set";
-$_SESSION["usermobile"] = $usermobile;
-echo json_encode($usermobile);
-}
 
+	$response1 = json_decode($response);
+
+  	$response1 = $response1->{'type'};
+  
+  	if ($response1 == 'success') {
+		$_SESSION["sessionvariable"] = "set";
+		$_SESSION["usermobile"] = $usermobile;
+		echo json_encode($usermobile);
+	}
+	else{*/
+		$_SESSION["sessionvariable"] = "set";
+		$_SESSION["usermobile"] = $usermobile;
+  		echo json_encode($response1);
+	/*}*/
+/*}*/
 ?>

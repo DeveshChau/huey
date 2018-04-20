@@ -1,13 +1,9 @@
 <?php	
 	session_start();
 	$servername = "localhost";
-<<<<<<< HEAD
+
 	$username = "root";
 	$password = "root";
-=======
-	$username = "huey_pacemove";
-	$password = "huey_PM@1";
->>>>>>> server
 	$dbname = "pm_huey";
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $dbname);
@@ -26,11 +22,8 @@
 		$row = mysqli_fetch_assoc($useridsearchresult);
 		$dusername = $_row['pmusername'];
 	}
-<<<<<<< HEAD
+
 	/*$curl = curl_init();
-=======
-	$curl = curl_init();
->>>>>>> server
 
 	curl_setopt_array($curl, array(
 
@@ -53,15 +46,9 @@
 
 	if ($err) {
 	  echo json_encode("cURL Error #:" . $err);
-
-<<<<<<< HEAD
-	} else {*/  
-	  echo json_encode($dusername);
-	/*}*/
-=======
-	} else {  
+	} else {  */
 	  echo json_encode($servername);
-	}
->>>>>>> server
+	/*}*/
+
 
 ?>
